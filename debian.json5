@@ -1,0 +1,60 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Debian Automerge + Debian Docker Regex Manager
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Automerge Debian patch package version updates",
+            matchDatasources: [
+                "deb"
+            ],
+            matchUpdateTypes: [
+                "patch"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/debian/patch"
+            ],
+            "groupName": "debian package updates",
+        },
+        {
+            description: "Automerge Debian minor package version updates",
+            matchDatasources: [
+                "deb"
+            ],
+            matchUpdateTypes: [
+                "minor",
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/debian/minor"
+            ],
+            "groupName": "debian package updates",
+        },
+    ],
+    customManagers: [
+        {
+            customType: "regex",
+            managerFilePatterns: [
+                "/Dockerfile$/"
+            ],
+            // Pattern: 
+            // # renovate:debian: suite=XYZ arch=ABC depName=NAME 
+            // ARG FOO_VERSION="1.2.3"
+            matchStrings: [
+                '#\\s*renovate:debian:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\sARG .*?_VERSION="(?<currentValue>.*)"',
+            ],
+            // Debian Registry URL: Suite from regex or default to 'stable', components fixed, arch from regex or default to 'amd64'
+            registryUrlTemplate: "https://deb.debian.org/debian?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            datasourceTemplate: "deb",
+            versioningTemplate: "deb",
+        },
+    ],
+}
