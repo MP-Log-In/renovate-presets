@@ -3,6 +3,9 @@
     // Preset: Debian Automerge + Debian Docker Regex Manager
     // ---------------------------------------------------------
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    suppressNotifications: [
+        "dependencyLookupWarnings"
+    ],
     "postUpgradeTasks": {
         "executionMode": "update",
         "commands": [
