@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.1.0..v0.1.1) - 2026-02-03
+
+### 🐛 Bug Fixes
+
+- *(config)* Suppress renovate debian dependency lookup warnings - ([ef55dcb](https://git.0xmax42.io/renovate-bot/presets/commit/ef55dcb93275a6a217dbee808b3883bd03ec7cb3))
+
 ## [0.1.0] - 2026-02-03
 
 ### 🚀 Features
