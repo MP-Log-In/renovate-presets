@@ -1,0 +1,16 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [unreleased]
+
+### 🚀 Features
+
+- *(config)* Add preset for automerging debian package updates - ([7d9384d](https://git.0xmax42.io/renovate-bot/presets/commit/7d9384db10c328e95ea8fa489f646bae1d810567))
+
+### ⚙️ Miscellaneous Tasks
+
+- Update license copyright notice - ([159d008](https://git.0xmax42.io/renovate-bot/presets/commit/159d0084f06d4967066599047f0120e917eb2a38))
+- *(ci)* Add workflows for releases and major version tags - ([feeb7ba](https://git.0xmax42.io/renovate-bot/presets/commit/feeb7ba4270eae962e031228743fde177d25e228))
+
+
