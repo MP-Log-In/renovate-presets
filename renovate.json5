@@ -1,0 +1,108 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    "mergeConfidence:all-badges"
+  ],
+  "semanticCommitScope": "deps",
+  "automergeStrategy": "rebase",
+  "packageRules": [
+    {
+      "description": [
+        "Automerge Docker digest updates"
+      ],
+      "matchManagers": [
+        "dockerfile"
+      ],
+      "matchUpdateTypes": [
+        "digest"
+      ],
+      "automerge": true,
+      "automergeStrategy": "rebase",
+      "automergeType": "pr",
+      "labels": [
+        "dependency",
+        "digest",
+        "docker",
+        "automerge"
+      ],
+      "groupName": "docker digests"
+    },
+    {
+      "description": [
+        "Automerge Debian Package Version updates"
+      ],
+      "matchDatasources": [
+        "deb"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true,
+      "automergeStrategy": "rebase",
+      "automergeType": "pr",
+      "labels": [
+        "dependency",
+        "automerge",
+        "minor",
+        "patch",
+        "debian"
+      ]
+    },
+    {
+      "description": [
+        "Actions and GitHub runners updates require approval per Dashboard"
+      ],
+      "matchDepTypes": [
+        "action",
+        "github-runner"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "major"
+      ],
+      "enabled": true,
+      "dependencyDashboardApproval": true
+    },
+    {
+      "description": [
+        "Automerge Docker digest updates"
+      ],
+      "matchManagers": [
+        "dockerfile"
+      ],
+      "matchUpdateTypes": [
+        "digest"
+      ],
+      "automerge": true,
+      "automergeType": "pr",
+      "labels": [
+        "automerge",
+        "digest",
+        "docker"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "enabled": true
+    },
+    {
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "dependencyDashboardApproval": true,
+      "enabled": true
+    }
+  ]
+}
