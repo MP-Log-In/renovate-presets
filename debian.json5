@@ -3,7 +3,41 @@
     // Preset: Debian Automerge + Debian Docker Regex Manager
     // ---------------------------------------------------------
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "postUpgradeTasks": {
+        "executionMode": "update",
+        "commands": [
+            "bump-debian-snapshot.py"
+        ],
+        "dataFileTemplate": "{{{ toJSON upgrades }}}",
+        "fileFilters": [
+            "Dockerfile",
+            "**/Dockerfile",
+            "**/Dockerfile.*"
+        ],
+    },
     packageRules: [
+        {
+            description: "Automerge digest updates for debian base images",
+            matchManagers: [
+                "dockerfile"
+            ],
+            matchDatasources: [
+                "docker"
+            ],
+            matchPackageNames: [
+                "debian"
+            ],
+            matchUpdateTypes: [
+                "digest"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/debian/docker/digest"
+            ]
+        },
         {
             description: "Automerge Debian patch package version updates",
             matchDatasources: [
@@ -19,7 +53,7 @@
                 "dependency/automerge",
                 "dependency/debian/patch"
             ],
-            "groupName": "debian package updates",
+            groupName: "debian package updates",
         },
         {
             description: "Automerge Debian minor package version updates",
@@ -36,23 +70,58 @@
                 "dependency/automerge",
                 "dependency/debian/minor"
             ],
-            "groupName": "debian package updates",
+            groupName: "debian package updates",
+        },
+        {
+            description: "Automerge Debian major package version updates",
+            matchDatasources: [
+                "deb"
+            ],
+            matchUpdateTypes: [
+                "major",
+            ],
+            automerge: false,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge/disabled",
+                "dependency/debian/major"
+            ],
         },
     ],
     customManagers: [
+        // Combined snapshot+security manager to handle both at once
         {
             customType: "regex",
             managerFilePatterns: [
                 "/Dockerfile$/"
             ],
             // Pattern: 
-            // # renovate:debian: suite=XYZ arch=ABC depName=NAME 
+            // # renovate:debian-snapshot+security: suite=XYZ arch=ABC depName=NAME
+            // # any other comments
             // ARG FOO_VERSION="1.2.3"
             matchStrings: [
-                '#\\s*renovate:debian:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\sARG .*?_VERSION="(?<currentValue>.*)"',
+                '(?m)^#\\s*renovate:debian-snapshot\\+security:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\s*$(?:\r?\n^#.*$)*\r?\n^ARG .*?_VERSION="(?<currentValue>.*)"',
             ],
             // Debian Registry URL: Suite from regex or default to 'stable', components fixed, arch from regex or default to 'amd64'
-            registryUrlTemplate: "https://deb.debian.org/debian?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            registryUrlTemplate: "https://snapshot.debian.org/archive/debian-security/20991231/?suite={{#if suite}}{{suite}}-security{{else}}stable-security{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            datasourceTemplate: "deb",
+            versioningTemplate: "deb",
+        },
+        {
+            customType: "regex",
+            managerFilePatterns: [
+                "/Dockerfile$/"
+            ],
+            // Pattern: 
+            // # renovate:debian-snapshot+security: suite=XYZ arch=ABC depName=NAME 
+            // # any other comments
+            // ARG FOO_VERSION="1.2.3"
+            matchStrings: [
+                '(?m)^#\\s*renovate:debian-snapshot\\+security:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\s*$(?:\r?\n^#.*$)*\r?\n^ARG .*?_VERSION="(?<currentValue>.*)"',
+            ],
+            // Debian Registry URL: Suite from regex or default to 'stable', components fixed, arch from regex or default to 'amd64'
+            registryUrlTemplate: "https://snapshot.debian.org/archive/debian/20991231/?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
             datasourceTemplate: "deb",
             versioningTemplate: "deb",
         },
