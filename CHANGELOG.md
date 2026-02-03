@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.1.1..v0.2.0) - 2026-02-03
+
+### 🚀 Features
+
+- *(config)* Add github release automerge and docker regex manager - ([e9582ab](https://git.0xmax42.io/renovate-bot/presets/commit/e9582abcee46a50939f89f3b9e7ffb87e469cd6d))
+
 ## [0.1.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.1.0..v0.1.1) - 2026-02-03
 
 ### 🐛 Bug Fixes
