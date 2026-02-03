@@ -59,7 +59,7 @@
         {
             "customType": "regex",
             "managerFilePatterns": [
-                "/Dockerfile$/"
+                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/"
             ],
             // Pattern:
             // # renovate:github-release: [registryUrl=...] packageName=OWNER/REPO [depName=NAME]
