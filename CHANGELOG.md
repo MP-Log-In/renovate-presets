@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.2.0..v0.2.1) - 2026-02-03
+
+### 🐛 Bug Fixes
+
+- *(config)* Extend dockerfile regex to support suffixed variants - ([49ab889](https://git.0xmax42.io/renovate-bot/presets/commit/49ab88955c9ee861c5e443e8e3ea8483618c519a))
+
 ## [0.2.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.1.1..v0.2.0) - 2026-02-03
 
 ### 🚀 Features
