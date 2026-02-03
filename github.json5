@@ -1,0 +1,79 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Debian Automerge + Debian Docker Regex Manager
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Automerge Github patch release version updates",
+            matchDatasources: [
+                "github-releases"
+            ],
+            matchUpdateTypes: [
+                "patch"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/github/patch"
+            ],
+            "groupName": "github release updates",
+        },
+        {
+            description: "Automerge Github minor release version updates",
+            matchDatasources: [
+                "github-releases"
+            ],
+            matchUpdateTypes: [
+                "minor",
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/github/minor"
+            ],
+            "groupName": "github release updates",
+        },
+        {
+            description: "Automerge Github major release version updates",
+            matchDatasources: [
+                "github-releases"
+            ],
+            matchUpdateTypes: [
+                "major",
+            ],
+            automerge: false,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge/disabled",
+                "dependency/github/major"
+            ],
+        },
+    ],
+    customManagers: [
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/Dockerfile$/"
+            ],
+            // Pattern:
+            // # renovate:github-release: [registryUrl=...] packageName=OWNER/REPO [depName=NAME]
+            // ARG FOO_VERSION="v1.2.3"
+            "matchStrings": [
+                "#\\s*renovate:github-release:\\s*(?:registryUrl=(?<registryUrl>\\S+)\\s+)?packageName=(?<packageName>\\S+)(?:\\s+depName=(?<depName>\\S+))?\\s*\\n\\s*ARG\\s+(?<argName>[A-Za-z0-9_]+_VERSION)=\"(?<currentValue>[^\"]+)\""
+            ],
+            "datasourceTemplate": "github-releases",
+            // github-releases has no default versioning; regex managers default to semver-coerced,
+            // but being explicit helps when tags are like "v1.2.3".
+            "versioningTemplate": "semver-coerced",
+            "registryUrlTemplate": "{{#if registryUrl}}{{registryUrl}}{{else}}https://github.com/{{/if}}",
+            "packageNameTemplate": "{{{packageName}}}",
+            "depNameTemplate": "{{#if depName}}{{{depName}}}{{else}}{{{packageName}}}{{/if}}"
+        },
+    ],
+}
