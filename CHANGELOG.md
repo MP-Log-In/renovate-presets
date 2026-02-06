@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.2.1..v0.3.0) - 2026-02-06
+
+### 🚀 Features
+
+- *(config)* Add renovate preset for deno dependency management - ([15451ed](https://git.0xmax42.io/renovate-bot/presets/commit/15451edf8c717e1dcc3cc99afd787f0a3893a366))
+
 ## [0.2.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.2.0..v0.2.1) - 2026-02-03
 
 ### 🐛 Bug Fixes
