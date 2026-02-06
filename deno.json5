@@ -1,0 +1,174 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Deno Automerge + Deno JSR/NPM Regex Manager
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "postUpgradeTasks": {
+        "commands": [
+            "deno install --lockfile-only"
+        ],
+        "fileFilters": [
+            "deno.lock",
+            "**/deno.lock"
+        ],
+        "executionMode": "update"
+    },
+    packageRules: [
+        {
+            description: "Automerge Deno JSR/NPM patch package version updates",
+            matchDatasources: [
+                "npm"
+            ],
+            matchUpdateTypes: [
+                "patch"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/deno/patch"
+            ],
+            groupName: "deno jsr/npm package updates",
+        },
+        {
+            description: "Automerge Deno JSR/NPM minor package version updates",
+            matchDatasources: [
+                "npm"
+            ],
+            matchUpdateTypes: [
+                "minor",
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/deno/minor"
+            ],
+            groupName: "deno jsr/npm package updates",
+        },
+        {
+            description: "Automerge Deno JSR/NPM major package version updates",
+            matchDatasources: [
+                "npm"
+            ],
+            matchUpdateTypes: [
+                "major",
+            ],
+            automerge: false,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge/disabled",
+                "dependency/deno/major"
+            ],
+        },
+    ],
+    customManagers: [
+        // JSR
+        {
+            "customType": "jsonata",
+            "fileFormat": "json",
+            "managerFilePatterns": [
+                "/(?:^|/)import_map.json$/",
+                "/(?:^|/)deno.jsonc?$/"
+            ],
+            "matchStrings": [
+                "imports.*[$ ~> /^(jsr:|https:\\/\\/jsr.io\\/)/i] ~> $map(function($v) {( $package := $v ~> $replace(/^(jsr:|https:\\/\\/jsr.io\\/)/i, '') ~> /(@(.+?)/(.+?))[@|\\/]((\\^|~|>|>=|<)?(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(-((0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(\\.(0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(\\+([0-9a-zA-Z-]+(\\.[0-9a-zA-Z-]+)*))?)?)?)/; { 'depName': $package.groups[0], 'packageName': '@jsr/' & $package.groups[1] & '__' & $package.groups[2], 'currentValue': $package.groups[3] })})"
+            ],
+            "datasourceTemplate": "npm",
+            "versioningTemplate": "npm",
+            "registryUrlTemplate": "https://npm.jsr.io"
+        },
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/\\.[jt]sx?$/"
+            ],
+            "matchStrings": [
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]jsr:(?<depName>@(?<namespace>.+?)/(?<package>.+?))@(?<currentValue>(\\^|~|>|>=|<)?(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)?)?)[/'\"]",
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://jsr.io/(?<depName>@(?<namespace>.+?)/(?<package>.+?))/(?<currentValue>(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)?)?)[/'\"]"
+            ],
+            "datasourceTemplate": "npm",
+            "registryUrlTemplate": "https://npm.jsr.io",
+            "versioningTemplate": "npm",
+            "packageNameTemplate": "@jsr/{{namespace}}__{{package}}"
+        },
+        // NPM
+        {
+            "customType": "jsonata",
+            "fileFormat": "json",
+            "managerFilePatterns": [
+                "/(?:^|/)import_map.json$/",
+                "/(?:^|/)deno.jsonc?$/"
+            ],
+            "matchStrings": [
+                "imports.*[$ ~> /^(npm:|https:\\/\\/(esm\\.sh|unpkg\\.com|cdn\\.skypack\\.dev)\\/)/i] ~> $map(function($v) {( $package := $v ~> $replace(/^(npm:\\/?|https:\\/\\/(esm\\.sh|unpkg\\.com|cdn\\.skypack\\.dev)\\/)/i, '') ~> /^(.+?)@v?((\\^|~|>|>=|<)?(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(-((0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(\\.(0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(\\+([0-9a-zA-Z-]+(\\.[0-9a-zA-Z-]+)*))?)?)?)/; { 'depName': $package.groups[0], 'currentValue': $package.groups[1] })})"
+            ],
+            "versioningTemplate": "npm",
+            "datasourceTemplate": "npm"
+        },
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/\\.[jt]sx?$/"
+            ],
+            "matchStrings": [
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://esm.sh/(v\\d{1,3}/)?(?<depName>.+?)@(?<currentValue>(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)?)?)[?/'\"]",
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]npm:(?<depName>.+?)@(?<currentValue>(?:~|\\^|>|>=|<)?(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)?)?)[/'\"]",
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https?://unpkg.com/(?<depName>(?:@[^/\"']*/)?[^/\"']*?)@(?<currentValue>(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)?)?)[/'\"]",
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https?://cdn.skypack.dev/(?<depName>(?:@[^/\"']*/)?[^/\"']*?)@(?<currentValue>(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)?)?)[?/'\"]"
+            ],
+            "versioningTemplate": "npm",
+            "datasourceTemplate": "npm"
+        },
+        // Deno Land
+        {
+            "customType": "jsonata",
+            "fileFormat": "json",
+            "managerFilePatterns": [
+                "/(?:^|/)import_map.json$/",
+                "/(?:^|/)deno.jsonc?$/"
+            ],
+            "matchStrings": [
+                "imports.*[$ ~> /^https:\\/\\/deno.land\\/(x\\/|std)/i] ~> $map(function($v) {( $package := $v ~> /^(https:\\/\\/deno.land\\/(x\\/.+?|std))@(v?(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(-((0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(\\.(0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(\\+([0-9a-zA-Z-]+(\\.[0-9a-zA-Z-]+)*))?)?)?)/; { 'currentValue': $package.groups[2], 'depName': $package.groups[0] })})"
+            ],
+            "datasourceTemplate": "deno"
+        },
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/\\.[jt]sx?$/"
+            ],
+            "matchStrings": [
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"](?<depName>https://deno.land/(?:x?.+?|std))@(?<currentValue>v?(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)?)?)[/'\"]"
+            ],
+            "datasourceTemplate": "deno"
+        },
+        // Github Tag
+        {
+            "customType": "jsonata",
+            "fileFormat": "json",
+            "managerFilePatterns": [
+                "/(?:^|/)import_map.json$/",
+                "/(?:^|/)deno.jsonc?$/"
+            ],
+            "matchStrings": [
+                "imports.*[$ ~> /^https:\\/\\/(raw\\.githubusercontent\\.com|pax\\.deno\\.dev)\\//i] ~> $map(function($v) {( $package := $v ~> $replace(/^https:\\/\\/(raw\\.githubusercontent\\.com|pax\\.deno\\.dev)\\//, '') ~> /^((.+?)\\/(.+?))[/@](.+?)($|\\/)/; { 'depName': $package.groups[0], 'currentValue': $package.groups[3] })})"
+            ],
+            "datasourceTemplate": "github-tags"
+        },
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/\\.[jt]sx?$/"
+            ],
+            "matchStrings": [
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://pax.deno.dev/(?<depName>.+?/.+?)@(?<currentValue>[^/\"']+?)[/\"']",
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://raw.githubusercontent.com/(?<depName>.+?/.+?)/(?<currentValue>[^'\"]+?)[/'\"]"
+            ],
+            "datasourceTemplate": "github-tags"
+        }
+    ],
+}
