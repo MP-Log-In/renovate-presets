@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.3.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.3.0..v0.3.1) - 2026-02-06
 
 ### 📚 Documentation
 
@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Miscellaneous Tasks
 
+- *(config)* Disable deno land and github tag renovate managers - ([ed756cf](https://git.0xmax42.io/renovate-bot/presets/commit/ed756cf15a89fe99b8bb1e1ef7b499f901b18327))
 - *(config)* Document third party sources and licensing for deno preset - ([1cbeeb6](https://git.0xmax42.io/renovate-bot/presets/commit/1cbeeb68f54bacce53d7e5e10d34f4ea09aca613))
 
 ## [0.3.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.2.1..v0.3.0) - 2026-02-06
