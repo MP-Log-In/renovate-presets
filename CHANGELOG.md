@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### ⚙️ Miscellaneous Tasks
+
+- *(config)* Document third party sources and licensing for deno preset - ([1cbeeb6](https://git.0xmax42.io/renovate-bot/presets/commit/1cbeeb68f54bacce53d7e5e10d34f4ea09aca613))
+
 ## [0.3.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.2.1..v0.3.0) - 2026-02-06
 
 ### 🚀 Features
