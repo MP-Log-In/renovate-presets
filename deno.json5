@@ -131,60 +131,60 @@
             "versioningTemplate": "npm",
             "datasourceTemplate": "npm"
         },
-        // Deno Land
-        {
-            // Derived from Omochice Renovate config (zlib License), modified.
-            // [License](LICENSES/zlib-omochice.txt)
-            "customType": "jsonata",
-            "fileFormat": "json",
-            "managerFilePatterns": [
-                "/(?:^|/)import_map.json$/",
-                "/(?:^|/)deno.jsonc?$/"
-            ],
-            "matchStrings": [
-                "imports.*[$ ~> /^https:\\/\\/deno.land\\/(x\\/|std)/i] ~> $map(function($v) {( $package := $v ~> /^(https:\\/\\/deno.land\\/(x\\/.+?|std))@(v?(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(-((0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(\\.(0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(\\+([0-9a-zA-Z-]+(\\.[0-9a-zA-Z-]+)*))?)?)?)/; { 'currentValue': $package.groups[2], 'depName': $package.groups[0] })})"
-            ],
-            "datasourceTemplate": "deno"
-        },
-        {
-            // Derived from Omochice Renovate config (zlib License), modified.
-            // [License](LICENSES/zlib-omochice.txt)
-            "customType": "regex",
-            "managerFilePatterns": [
-                "/\\.[jt]sx?$/"
-            ],
-            "matchStrings": [
-                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"](?<depName>https://deno.land/(?:x?.+?|std))@(?<currentValue>v?(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)?)?)[/'\"]"
-            ],
-            "datasourceTemplate": "deno"
-        },
-        // Github Tag
-        {
-            // Derived from Omochice Renovate config (zlib License), modified.
-            // [License](LICENSES/zlib-omochice.txt)
-            "customType": "jsonata",
-            "fileFormat": "json",
-            "managerFilePatterns": [
-                "/(?:^|/)import_map.json$/",
-                "/(?:^|/)deno.jsonc?$/"
-            ],
-            "matchStrings": [
-                "imports.*[$ ~> /^https:\\/\\/(raw\\.githubusercontent\\.com|pax\\.deno\\.dev)\\//i] ~> $map(function($v) {( $package := $v ~> $replace(/^https:\\/\\/(raw\\.githubusercontent\\.com|pax\\.deno\\.dev)\\//, '') ~> /^((.+?)\\/(.+?))[/@](.+?)($|\\/)/; { 'depName': $package.groups[0], 'currentValue': $package.groups[3] })})"
-            ],
-            "datasourceTemplate": "github-tags"
-        },
-        {
-            // Derived from Omochice Renovate config (zlib License), modified.
-            // [License](LICENSES/zlib-omochice.txt)
-            "customType": "regex",
-            "managerFilePatterns": [
-                "/\\.[jt]sx?$/"
-            ],
-            "matchStrings": [
-                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://pax.deno.dev/(?<depName>.+?/.+?)@(?<currentValue>[^/\"']+?)[/\"']",
-                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://raw.githubusercontent.com/(?<depName>.+?/.+?)/(?<currentValue>[^'\"]+?)[/'\"]"
-            ],
-            "datasourceTemplate": "github-tags"
-        }
+        // // Deno Land
+        // {
+        //     // Derived from Omochice Renovate config (zlib License), modified.
+        //     // [License](LICENSES/zlib-omochice.txt)
+        //     "customType": "jsonata",
+        //     "fileFormat": "json",
+        //     "managerFilePatterns": [
+        //         "/(?:^|/)import_map.json$/",
+        //         "/(?:^|/)deno.jsonc?$/"
+        //     ],
+        //     "matchStrings": [
+        //         "imports.*[$ ~> /^https:\\/\\/deno.land\\/(x\\/|std)/i] ~> $map(function($v) {( $package := $v ~> /^(https:\\/\\/deno.land\\/(x\\/.+?|std))@(v?(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(\\.(0|[1-9]\\d*)(-((0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(\\.(0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(\\+([0-9a-zA-Z-]+(\\.[0-9a-zA-Z-]+)*))?)?)?)/; { 'currentValue': $package.groups[2], 'depName': $package.groups[0] })})"
+        //     ],
+        //     "datasourceTemplate": "deno"
+        // },
+        // {
+        //     // Derived from Omochice Renovate config (zlib License), modified.
+        //     // [License](LICENSES/zlib-omochice.txt)
+        //     "customType": "regex",
+        //     "managerFilePatterns": [
+        //         "/\\.[jt]sx?$/"
+        //     ],
+        //     "matchStrings": [
+        //         "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"](?<depName>https://deno.land/(?:x?.+?|std))@(?<currentValue>v?(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:\\.(?:0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?)?)?)[/'\"]"
+        //     ],
+        //     "datasourceTemplate": "deno"
+        // },
+        // // Github Tag
+        // {
+        //     // Derived from Omochice Renovate config (zlib License), modified.
+        //     // [License](LICENSES/zlib-omochice.txt)
+        //     "customType": "jsonata",
+        //     "fileFormat": "json",
+        //     "managerFilePatterns": [
+        //         "/(?:^|/)import_map.json$/",
+        //         "/(?:^|/)deno.jsonc?$/"
+        //     ],
+        //     "matchStrings": [
+        //         "imports.*[$ ~> /^https:\\/\\/(raw\\.githubusercontent\\.com|pax\\.deno\\.dev)\\//i] ~> $map(function($v) {( $package := $v ~> $replace(/^https:\\/\\/(raw\\.githubusercontent\\.com|pax\\.deno\\.dev)\\//, '') ~> /^((.+?)\\/(.+?))[/@](.+?)($|\\/)/; { 'depName': $package.groups[0], 'currentValue': $package.groups[3] })})"
+        //     ],
+        //     "datasourceTemplate": "github-tags"
+        // },
+        // {
+        //     // Derived from Omochice Renovate config (zlib License), modified.
+        //     // [License](LICENSES/zlib-omochice.txt)
+        //     "customType": "regex",
+        //     "managerFilePatterns": [
+        //         "/\\.[jt]sx?$/"
+        //     ],
+        //     "matchStrings": [
+        //         "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://pax.deno.dev/(?<depName>.+?/.+?)@(?<currentValue>[^/\"']+?)[/\"']",
+        //         "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://raw.githubusercontent.com/(?<depName>.+?/.+?)/(?<currentValue>[^'\"]+?)[/'\"]"
+        //     ],
+        //     "datasourceTemplate": "github-tags"
+        // }
     ],
 }
