@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [unreleased]
 
+### 📚 Documentation
+
+- Add acknowledgement for omochice renovate config contributions - ([00f9e33](https://git.0xmax42.io/renovate-bot/presets/commit/00f9e3371e6faa7caf33d51f0ee0bebcd638e681))
+
 ### ⚙️ Miscellaneous Tasks
 
 - *(config)* Document third party sources and licensing for deno preset - ([1cbeeb6](https://git.0xmax42.io/renovate-bot/presets/commit/1cbeeb68f54bacce53d7e5e10d34f4ea09aca613))
