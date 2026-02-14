@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.4.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.3.1..v0.4.0) - 2026-02-14
 
 ### 🚀 Features
 
