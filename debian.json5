@@ -128,5 +128,19 @@
             datasourceTemplate: "deb",
             versioningTemplate: "deb",
         },
+        {
+            // Manager for Debian package versions in GitHub Actions/Gitea CI workflows
+            customType: "regex",
+            managerFilePatterns: [
+                "/\\.gitea\\/workflows\\/.*\\.ya?ml$/",
+                "/\\.github\\/workflows\\/.*\\.ya?ml$/"
+            ],
+            matchStrings: [
+                "(?m)^\\s*#\\s*renovate:debian\\s+(?:registryUrl=(?<registryUrl>\\S+)\\s+)?(?:suite=(?<suite>\\S+)\\s+)?(?:arch=(?<arch>\\S+)\\s+)?depName=(?<depName>\\S+)\\s*$((?:\\r?\\n^\\s*#.*$)*)\\r?\\n^\\s*?.*?_VERSION=\"(?<currentValue>[^\"]+)\""
+            ],
+            registryUrlTemplate: "{{#if registryUrl}}{{registryUrl}}{{else}}https://snapshot.debian.org/archive/debian/20991231/{{/if}}?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            datasourceTemplate: "deb",
+            versioningTemplate: "deb"
+        }
     ],
 }
