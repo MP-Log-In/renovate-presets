@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### 🚀 Features
+
+- *(config)* Manage debian packages in ci workflows with regex manager - ([d8152e2](https://git.0xmax42.io/renovate-bot/presets/commit/d8152e2129b53af17e594028a98e920120bfeaa4))
+
 ## [0.3.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.3.0..v0.3.1) - 2026-02-06
 
 ### 📚 Documentation
