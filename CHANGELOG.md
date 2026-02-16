@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.4.0..v0.5.0) - 2026-02-16
+
+### 🚀 Features
+
+- *(config)* Add dep and package name templates for debian managers - ([a96b29d](https://git.0xmax42.io/renovate-bot/presets/commit/a96b29d0f700d519e4a16a64b46a161c921eab44))
+
 ## [0.4.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.3.1..v0.4.0) - 2026-02-14
 
 ### 🚀 Features
