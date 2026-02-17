@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.5.0..v0.6.0) - 2026-02-17
+
+### 🚀 Features
+
+- *(config)* Add renovate dependency dashboard configuration - ([1e40869](https://git.0xmax42.io/renovate-bot/presets/commit/1e4086938c2328a0fd1a9ad0448a7e019fda02a2))
+
 ## [0.5.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.4.0..v0.5.0) - 2026-02-16
 
 ### 🚀 Features
