@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### 🚀 Features
+
+- *(config)* Use env-based debian snapshot timestamp in registry urls - ([e7d5309](https://git.0xmax42.io/renovate-bot/presets/commit/e7d5309e228ab16cdf9ce3afbb1a66e468c97dc6))
+
 ## [0.6.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.5.0..v0.6.0) - 2026-02-17
 
 ### 🚀 Features
