@@ -107,7 +107,7 @@
                 '(?m)^#\\s*renovate:debian-snapshot\\+security:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\s*$(?:\r?\n^#.*$)*\r?\n^ARG .*?_VERSION="(?<currentValue>.*)"',
             ],
             // Debian Registry URL: Suite from regex or default to 'stable', components fixed, arch from regex or default to 'amd64'
-            registryUrlTemplate: "https://snapshot.debian.org/archive/debian-security/20991231/?suite={{#if suite}}{{suite}}-security{{else}}stable-security{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            registryUrlTemplate: "https://snapshot.debian.org/archive/debian-security/{{ env.DEBIAN_SNAPSHOT_TS }}/?suite={{#if suite}}{{suite}}-security{{else}}stable-security{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
             depNameTemplate: "{{depName}}-{{#if arch}}{{arch}}{{else}}amd64{{/if}}-security",
             packageNameTemplate: "{{depName}}",
             datasourceTemplate: "deb",
@@ -126,7 +126,7 @@
                 '(?m)^#\\s*renovate:debian-snapshot\\+security:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\s*$(?:\r?\n^#.*$)*\r?\n^ARG .*?_VERSION="(?<currentValue>.*)"',
             ],
             // Debian Registry URL: Suite from regex or default to 'stable', components fixed, arch from regex or default to 'amd64'
-            registryUrlTemplate: "https://snapshot.debian.org/archive/debian/20991231/?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            registryUrlTemplate: "https://snapshot.debian.org/archive/debian/{{ env.DEBIAN_SNAPSHOT_TS }}/?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
             depNameTemplate: "{{depName}}-{{#if arch}}{{arch}}{{else}}amd64{{/if}}",
             packageNameTemplate: "{{depName}}",
             datasourceTemplate: "deb",
@@ -142,7 +142,7 @@
             matchStrings: [
                 "(?m)^\\s*#\\s*renovate:debian\\s+(?:registryUrl=(?<registryUrl>\\S+)\\s+)?(?:suite=(?<suite>\\S+)\\s+)?(?:arch=(?<arch>\\S+)\\s+)?depName=(?<depName>\\S+)\\s*$((?:\\r?\\n^\\s*#.*$)*)\\r?\\n^\\s*?.*?_VERSION=\"(?<currentValue>[^\"]+)\""
             ],
-            registryUrlTemplate: "{{#if registryUrl}}{{registryUrl}}{{else}}https://snapshot.debian.org/archive/debian/20991231/{{/if}}?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            registryUrlTemplate: "{{#if registryUrl}}{{registryUrl}}{{else}}https://snapshot.debian.org/archive/debian/{{ env.DEBIAN_SNAPSHOT_TS }}/{{/if}}?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
             depNameTemplate: "{{depName}}-{{#if arch}}{{arch}}{{else}}amd64{{/if}}",
             packageNameTemplate: "{{depName}}",
             datasourceTemplate: "deb",
