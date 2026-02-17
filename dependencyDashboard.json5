@@ -1,0 +1,12 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Dependency Dashboard
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "dependencyDashboard": true,
+    "dependencyDashboardAutoclose": true,
+    "dependencyDashboardLabel": [
+        "dependency/dashboard"
+    ],
+    "dependencyDashboardHeader": "This issue lists Renovate updates and detected dependencies.",
+}
