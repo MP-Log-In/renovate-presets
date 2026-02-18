@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.8.0..v0.9.0) - 2026-02-18
+
+### 🚀 Features
+
+- *(config)* Add github upstream mk regex manager preset - ([10aa9f1](https://git.0xmax42.io/renovate-bot/presets/commit/10aa9f1dc89fb18e6ba3437ef701f3c74a2ede49))
+- *(config)* Require approval for github major release automerge - ([d8b2168](https://git.0xmax42.io/renovate-bot/presets/commit/d8b21685445cb77a829e73be01a60d23e0846b60))
+
 ## [0.8.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.7.0..v0.8.0) - 2026-02-18
 
 ### 🚀 Features
