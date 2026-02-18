@@ -1,0 +1,74 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Github Automerge + Github upstream.mk Regex Manager
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Automerge Github patch release version updates",
+            matchDatasources: [
+                "github-releases"
+            ],
+            matchUpdateTypes: [
+                "patch"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/github/patch"
+            ],
+            "groupName": "github release updates",
+        },
+        {
+            description: "Automerge Github minor release version updates",
+            matchDatasources: [
+                "github-releases"
+            ],
+            matchUpdateTypes: [
+                "minor",
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/github/minor"
+            ],
+            "groupName": "github release updates",
+        },
+        {
+            description: "Automerge Github major release version updates",
+            matchDatasources: [
+                "github-releases"
+            ],
+            matchUpdateTypes: [
+                "major",
+            ],
+            dependencyDashboardApproval: true,
+            automerge: false,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge/disabled",
+                "dependency/github/major"
+            ],
+        },
+    ],
+    customManagers: [
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/^upstream\\.mk$/"
+            ],
+            "matchStrings": [
+                'UPSTREAM_URL\\s*:=\\s*https://github\\.com/(?<packageName>[^/\\s]+/[^/\\s]+)\\.git\\s*UPSTREAM_REF\\s*:=\\s*(?<currentValue>[^\\s]+)'
+            ],
+            "datasourceTemplate": "github-releases",
+            "versioningTemplate": "semver-coerced",
+            "packageNameTemplate": "{{{packageName}}}",
+            "autoReplaceStringTemplate": "UPSTREAM_URL := https://github.com/{{{packageName}}}.git\nUPSTREAM_REF := {{{newValue}}}"
+        }
+    ],
+}
