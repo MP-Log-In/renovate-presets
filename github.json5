@@ -1,6 +1,6 @@
 {
     // ---------------------------------------------------------
-    // Preset: Debian Automerge + Debian Docker Regex Manager
+    // Preset: Github Automerge + Github Docker Regex Manager
     // ---------------------------------------------------------
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     packageRules: [
@@ -46,6 +46,7 @@
             matchUpdateTypes: [
                 "major",
             ],
+            dependencyDashboardApproval: true,
             automerge: false,
             automergeStrategy: "rebase",
             automergeType: "pr",
