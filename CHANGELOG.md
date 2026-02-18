@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.7.0..v0.8.0) - 2026-02-18
+
+### 🚀 Features
+
+- *(config)* Add base renovate preset with github actions disabled - ([c299bac](https://git.0xmax42.io/renovate-bot/presets/commit/c299bac1c27626ce3716cb361a07899278ddd078))
+
+### 📚 Documentation
+
+- Update readme with renovate preset usage - ([dfae29a](https://git.0xmax42.io/renovate-bot/presets/commit/dfae29a8bf8e00d31ebfe9a5e489ffb5e2db2b77))
+
 ## [0.7.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.6.0..v0.7.0) - 2026-02-17
 
 ### 🚀 Features
