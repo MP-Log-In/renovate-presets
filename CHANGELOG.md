@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.9.0..v0.9.1) - 2026-02-18
+
+### ⚙️ Miscellaneous Tasks
+
+- Rename github upstream mk preset file to camel case - ([5a024da](https://git.0xmax42.io/renovate-bot/presets/commit/5a024da12f0e7fbde0e797349a0a3520b99268cd))
+
 ## [0.9.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.8.0..v0.9.0) - 2026-02-18
 
 ### 🚀 Features
