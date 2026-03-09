@@ -5,7 +5,7 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "postUpgradeTasks": {
         "commands": [
-            "deno install --lockfile-only"
+            "deno install --lockfile-only --allow-import"
         ],
         "fileFilters": [
             "deno.lock",
