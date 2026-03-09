@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.2](https://git.0xmax42.io/renovate-bot/presets/compare/v0.9.1..v0.9.2) - 2026-03-09
+
+### 🐛 Bug Fixes
+
+- *(config)* Allow imports when updating deno lockfile - ([406ebe6](https://git.0xmax42.io/renovate-bot/presets/commit/406ebe648011bac476666d754a34b150f1f0ae02))
+
 ## [0.9.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.9.0..v0.9.1) - 2026-02-18
 
 ### ⚙️ Miscellaneous Tasks
