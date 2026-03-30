@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.10.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.9.2..v0.10.0) - 2026-03-30
+
+### 🚀 Features
+
+- *(config)* Add renovate pr schedule configuration - ([16bd07b](https://git.0xmax42.io/renovate-bot/presets/commit/16bd07b4e64acd446d5998760047570bd85c4eee))
+
 ## [0.9.2](https://git.0xmax42.io/renovate-bot/presets/compare/v0.9.1..v0.9.2) - 2026-03-09
 
 ### 🐛 Bug Fixes
