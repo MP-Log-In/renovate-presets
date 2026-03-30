@@ -1,0 +1,8 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "updateNotScheduled": false,
+    "prHourlyLimit": 1,
+    "schedule": [
+        "* 3 * * *"
+    ],
+}
