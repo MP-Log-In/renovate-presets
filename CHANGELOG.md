@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### ⚙️ Miscellaneous Tasks
 
+- *(workflows)* Add gitea workflow to create repository labels - ([58f4d8e](https://git.0xmax42.io/renovate-bot/presets/commit/58f4d8e278ed7ffeb61a2749f914b3b9f45d2766))
 - *(config)* Add renovate label configuration for dependency updates - ([1e629ec](https://git.0xmax42.io/renovate-bot/presets/commit/1e629ec5ced2b284a6dcc1dace3c7fa936d9d0e7))
 
 ## [0.10.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.10.0..v0.10.1) - 2026-04-10
