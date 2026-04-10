@@ -1,0 +1,55 @@
+labels:
+  # Renovate labels use a consistent semantic color scheme:
+  # green = low-risk/automatable, orange = moderate change, red = high-risk/blocking,
+  # violet = meta/organizational, cyan = technical special cases (for example digests).
+  - name: "dependency/automerge"
+    color: "2ca02c"
+    description: "Renovate update is eligible for automerge"
+
+  - name: "dependency/automerge/disabled"
+    color: "d62728"
+    description: "Automerge is disabled for this Renovate update"
+
+  - name: "dependency/dashboard"
+    color: "9467bd"
+    description: "Renovate dashboard and tracking label"
+
+  - name: "dependency/debian/docker/digest"
+    color: "17a2b8"
+    description: "Debian or container-related digest update"
+
+  - name: "dependency/debian/major"
+    color: "d62728"
+    description: "Debian dependency with a major update"
+
+  - name: "dependency/debian/minor"
+    color: "ff7f0e"
+    description: "Debian dependency with a minor update"
+
+  - name: "dependency/debian/patch"
+    color: "2ca02c"
+    description: "Debian dependency with a patch update"
+
+  - name: "dependency/deno/major"
+    color: "d62728"
+    description: "Deno dependency with a major update"
+
+  - name: "dependency/deno/minor"
+    color: "ff7f0e"
+    description: "Deno dependency with a minor update"
+
+  - name: "dependency/deno/patch"
+    color: "2ca02c"
+    description: "Deno dependency with a patch update"
+
+  - name: "dependency/github/major"
+    color: "d62728"
+    description: "GitHub-based dependency with a major update"
+
+  - name: "dependency/github/minor"
+    color: "ff7f0e"
+    description: "GitHub-based dependency with a minor update"
+
+  - name: "dependency/github/patch"
+    color: "2ca02c"
+    description: "GitHub-based dependency with a patch update"
