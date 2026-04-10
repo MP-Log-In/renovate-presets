@@ -1,8 +1,8 @@
 name: Create Repository Labels
 
 on:
-  # schedule:
-  #   - cron: "*/15 * * * *" # Every 15 Minutes
+  schedule:
+    - cron: "*/15 * * * *" # Every 15 Minutes
   workflow_dispatch:
 
 jobs:
