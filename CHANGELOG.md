@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.10.2](https://git.0xmax42.io/renovate-bot/presets/compare/v0.10.1..v0.10.2) - 2026-04-10
+
+### 🐛 Bug Fixes
+
+- *(config)* Correct renovate dependency dashboard labels key - ([4965251](https://git.0xmax42.io/renovate-bot/presets/commit/49652518849cd3e8e696b484cce035a1a2d8f056))
 
 ### ⚙️ Miscellaneous Tasks
 
