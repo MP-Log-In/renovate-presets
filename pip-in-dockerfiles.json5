@@ -1,0 +1,80 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "packageRules": [
+        {
+            "description": "Automerge Python patch updates from PyPI in Dockerfiles",
+            "matchManagers": [
+                "custom.regex"
+            ],
+            "matchDatasources": [
+                "pypi"
+            ],
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "automerge": true,
+            "automergeStrategy": "rebase",
+            "automergeType": "pr",
+            "labels": [
+                "dependency/automerge",
+                "dependency/pypi/patch"
+            ],
+            "groupName": "python package updates"
+        },
+        {
+            "description": "Automerge Python minor updates from PyPI in Dockerfiles",
+            "matchManagers": [
+                "custom.regex"
+            ],
+            "matchDatasources": [
+                "pypi"
+            ],
+            "matchUpdateTypes": [
+                "minor"
+            ],
+            "automerge": true,
+            "automergeStrategy": "rebase",
+            "automergeType": "pr",
+            "labels": [
+                "dependency/automerge",
+                "dependency/pypi/minor"
+            ],
+            "groupName": "python package updates"
+        },
+        {
+            "description": "Do not automerge Python major updates from PyPI in Dockerfiles",
+            "matchManagers": [
+                "custom.regex"
+            ],
+            "matchDatasources": [
+                "pypi"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "automerge": false,
+            "automergeStrategy": "rebase",
+            "automergeType": "pr",
+            "labels": [
+                "dependency/automerge/disabled",
+                "dependency/pypi/major"
+            ]
+        }
+    ],
+    "customManagers": [
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "**/[Dd]ockerfile*",
+                "**/[Cc]ontainerfile*",
+                "**/*.[Dd]ockerfile*",
+                "**/*.[Cc]ontainerfile*"
+            ],
+            "matchStrings": [
+                "#\\s*renovate:pypi\\s+(?:packageName=(?<packageName>[^\\s]+)\\s+)?depName=(?<depName>[^\\s]+)(?:\\s+registryUrl=(?<registryUrl>[^\\s]+))?(?:\\s+versioning=(?<versioning>[^\\s]+))?\\s(?:ENV|ARG)\\s+[A-Za-z0-9_]+?_VERSION[ =][\"']?(?<currentValue>.+?)[\"']?\\s"
+            ],
+            "datasourceTemplate": "pypi",
+            "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}pep440{{/if}}"
+        }
+    ]
+}

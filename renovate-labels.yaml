@@ -53,3 +53,15 @@ labels:
   - name: "dependency/github/patch"
     color: "2ca02c"
     description: "GitHub-based dependency with a patch update"
+
+  - name: "dependency/pypi/major"
+    color: "d62728"
+    description: "PyPI dependency with a major update"
+
+  - name: "dependency/pypi/minor"
+    color: "ff7f0e"
+    description: "PyPI dependency with a minor update"
+
+  - name: "dependency/pypi/patch"
+    color: "2ca02c"
+    description: "PyPI dependency with a patch update"
