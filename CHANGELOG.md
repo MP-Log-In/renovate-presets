@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.11.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.10.2..v0.11.0) - 2026-04-14
+
+### ⚙️ Miscellaneous Tasks
+
+- *(config)* Add renovate rules for pypi in dockerfiles - ([cf70b23](https://git.0xmax42.io/renovate-bot/presets/commit/cf70b23b7054b3fb57a6d01d8f7710a6f4bad85c))
+
 ## [0.10.2](https://git.0xmax42.io/renovate-bot/presets/compare/v0.10.1..v0.10.2) - 2026-04-10
 
 ### 🐛 Bug Fixes
