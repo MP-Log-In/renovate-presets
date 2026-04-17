@@ -1,0 +1,64 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "packageRules": [
+        {
+            "description": "Automerge Rust patch updates from crates.io",
+            "matchManagers": [
+                "cargo"
+            ],
+            "matchDatasources": [
+                "crate"
+            ],
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "automerge": true,
+            "automergeStrategy": "rebase",
+            "automergeType": "pr",
+            "labels": [
+                "dependency/automerge",
+                "dependency/rust/patch"
+            ],
+            "groupName": "rust crate updates"
+        },
+        {
+            "description": "Automerge Rust minor updates from crates.io",
+            "matchManagers": [
+                "cargo"
+            ],
+            "matchDatasources": [
+                "crate"
+            ],
+            "matchUpdateTypes": [
+                "minor"
+            ],
+            "automerge": true,
+            "automergeStrategy": "rebase",
+            "automergeType": "pr",
+            "labels": [
+                "dependency/automerge",
+                "dependency/rust/minor"
+            ],
+            "groupName": "rust crate updates"
+        },
+        {
+            "description": "Do not automerge Rust major updates from crates.io",
+            "matchManagers": [
+                "cargo"
+            ],
+            "matchDatasources": [
+                "crate"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "automerge": false,
+            "automergeStrategy": "rebase",
+            "automergeType": "pr",
+            "labels": [
+                "dependency/automerge/disabled",
+                "dependency/rust/major"
+            ]
+        }
+    ]
+}
