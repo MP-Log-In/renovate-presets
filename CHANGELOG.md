@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.11.0..v0.12.0) - 2026-04-17
+
+### ⚙️ Miscellaneous Tasks
+
+- *(config)* Add renovate rules for cargo crate updates - ([59cac08](https://git.0xmax42.io/renovate-bot/presets/commit/59cac08b5c14dfadd47008e67be9c3b0a0ccf7ed))
+
 ## [0.11.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.10.2..v0.11.0) - 2026-04-14
 
 ### ⚙️ Miscellaneous Tasks
