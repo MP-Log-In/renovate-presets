@@ -18,6 +18,10 @@ labels:
     color: "17a2b8"
     description: "Debian or container-related digest update"
 
+  - name: "dependency/docker/digest"
+    color: "17a2b8"
+    description: "Docker image dependency with a digest update"
+
   - name: "dependency/debian/major"
     color: "d62728"
     description: "Debian dependency with a major update"

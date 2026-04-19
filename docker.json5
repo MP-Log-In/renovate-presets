@@ -1,0 +1,27 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Docker Digest Automerge
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Automerge digest updates for Docker images",
+            matchManagers: [
+                "dockerfile"
+            ],
+            matchDatasources: [
+                "docker"
+            ],
+            matchUpdateTypes: [
+                "digest"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/docker/digest"
+            ]
+        },
+    ],
+}
