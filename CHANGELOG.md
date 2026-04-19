@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.13.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.12.0..v0.13.0) - 2026-04-19
+
+### 🚀 Features
+
+- *(config)* Add docker digest automerge preset and label - ([3c9373b](https://git.0xmax42.io/renovate-bot/presets/commit/3c9373b0b572a6991a7f685a3488eec049258d24))
+
 ## [0.12.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.11.0..v0.12.0) - 2026-04-17
 
 ### ⚙️ Miscellaneous Tasks
