@@ -147,6 +147,23 @@
             packageNameTemplate: "{{depName}}",
             datasourceTemplate: "deb",
             versioningTemplate: "deb"
+        },
+        {
+            // Manager for Debian package versions in `dependency` files
+            customType: "regex",
+            "managerFilePatterns": [
+                "**/[Dd]ependency*",
+                "**/*.[Dd]ependency*",
+                "**/*.[Cc]ontainerfile*"
+            ],
+            matchStrings: [
+                "(?m)^\\s*#\\s*renovate:debian\\s+(?:registryUrl=(?<registryUrl>\\S+)\\s+)?(?:suite=(?<suite>\\S+)\\s+)?(?:arch=(?<arch>\\S+)\\s+)?depName=(?<depName>\\S+)\\s*$((?:\\r?\\n^\\s*#.*$)*)\\r?\\n^\\s*?.*?_VERSION=\"(?<currentValue>[^\"]+)\""
+            ],
+            registryUrlTemplate: "{{#if registryUrl}}{{registryUrl}}{{else}}https://snapshot.debian.org/archive/debian/{{ env.DEBIAN_SNAPSHOT_TS }}/{{/if}}?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            depNameTemplate: "{{depName}}-{{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            packageNameTemplate: "{{depName}}",
+            datasourceTemplate: "deb",
+            versioningTemplate: "deb"
         }
     ],
 }
