@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.15.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.14.0..v0.15.0) - 2026-04-20
+
+### 🚀 Features
+
+- *(config)* Support debian component override in docker regex manager - ([a9613cd](https://git.0xmax42.io/renovate-bot/presets/commit/a9613cd9e175db0448817c41cbde135b0ffe3ca4))
+
 ## [0.14.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.13.0..v0.14.0) - 2026-04-20
 
 ### 🚀 Features
