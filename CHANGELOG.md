@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.14.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.13.0..v0.14.0) - 2026-04-20
+
+### 🚀 Features
+
+- *(config)* Add regex manager for debian packages in dockerfiles - ([81caf44](https://git.0xmax42.io/renovate-bot/presets/commit/81caf44ca4a720ac3edd50b465895051aa40e75a))
+
 ## [0.13.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.12.0..v0.13.0) - 2026-04-19
 
 ### 🚀 Features
