@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.16.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.15.0..v0.16.0) - 2026-04-20
+
+### 🚀 Features
+
+- *(config)* Use debian archive for non snapshot debian managers - ([2dd555e](https://git.0xmax42.io/renovate-bot/presets/commit/2dd555ee53c485dc970974c392a93a2826cbead5))
+
 ## [0.15.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.14.0..v0.15.0) - 2026-04-20
 
 ### 🚀 Features
