@@ -139,13 +139,13 @@
                 "/Dockerfile(\\.[A-Za-z0-9_]+)?$/"
             ],
             // Pattern:
-            // # renovate:debian registryUrl=URL suite=XYZ arch=ABC depName=NAME
+            // # renovate:debian registryUrl=URL suite=XYZ arch=ABC component=XYZ depName=NAME
             // # any other comments
             // ARG FOO_VERSION="1.2.3"
             matchStrings: [
-                '(?m)^#\\s*renovate:debian\\s+(?:registryUrl=(?<registryUrl>\\S+)\\s+)?(?:suite=(?<suite>\\S+)\\s+)?(?:arch=(?<arch>\\S+)\\s+)?depName=(?<depName>\\S+)\\s*$(?:\r?\n^#.*$)*\r?\n^ARG .*?_VERSION="(?<currentValue>[^"]+)"',
+                '(?m)^#\\s*renovate:debian\\s+(?:registryUrl=(?<registryUrl>\\S+)\\s+)?(?:suite=(?<suite>\\S+)\\s+)?(?:arch=(?<arch>\\S+)\\s+)?(?:component=(?<component>\\S+)\\s+)?depName=(?<depName>\\S+)\\s*$(?:\r?\n^#.*$)*\r?\n^ARG .*?_VERSION="(?<currentValue>[^"]+)"',
             ],
-            registryUrlTemplate: "{{#if registryUrl}}{{registryUrl}}{{else}}https://snapshot.debian.org/archive/debian/{{ env.DEBIAN_SNAPSHOT_TS }}/{{/if}}?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
+            registryUrlTemplate: "{{#if registryUrl}}{{registryUrl}}{{else}}https://snapshot.debian.org/archive/debian/{{ env.DEBIAN_SNAPSHOT_TS }}/{{/if}}?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components={{#if component}}{{component}}{{else}}main,contrib,non-free{{/if}}&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
             depNameTemplate: "{{depName}}-{{#if arch}}{{arch}}{{else}}amd64{{/if}}",
             packageNameTemplate: "{{depName}}",
             datasourceTemplate: "deb",
