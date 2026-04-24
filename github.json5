@@ -66,7 +66,7 @@
             // # renovate:github-release: [registryUrl=...] packageName=OWNER/REPO [depName=NAME]
             // ARG FOO_VERSION="v1.2.3"
             "matchStrings": [
-                "#\\s*renovate:github-release:\\s*(?:registryUrl=(?<registryUrl>\\S+)\\s+)?packageName=(?<packageName>\\S+)(?:\\s+depName=(?<depName>\\S+))?\\s*\\n\\s*ARG\\s+(?<argName>[A-Za-z0-9_]+_VERSION)=\"(?<currentValue>[^\"]+)\""
+                "(?m)^#\\s*renovate:github-release:\\s*(?:registryUrl=(?<registryUrl>\\S+)\\s+)?packageName=(?<packageName>\\S+)(?:\\s+depName=(?<depName>\\S+))?\\s*$(?:\\r?\\n^#.*$)*\\r?\\n^[ \\t]*ARG\\s+(?<argName>[A-Za-z0-9_]+_VERSION)=\"?(?<currentValue>[^\"\\s]+)\"?"
             ],
             "datasourceTemplate": "github-releases",
             // github-releases has no default versioning; regex managers default to semver-coerced,
