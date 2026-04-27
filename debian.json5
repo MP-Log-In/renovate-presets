@@ -100,6 +100,10 @@
             customType: "regex",
             managerFilePatterns: [
                 "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "**/[Dd]ockerfile*",
+                "**/[Cc]ontainerfile*",
+                "**/*.[Dd]ockerfile*",
+                "**/*.[Cc]ontainerfile*",
                 "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
             ],
             // Pattern:
@@ -122,6 +126,10 @@
             customType: "regex",
             managerFilePatterns: [
                 "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "**/[Dd]ockerfile*",
+                "**/[Cc]ontainerfile*",
+                "**/*.[Dd]ockerfile*",
+                "**/*.[Cc]ontainerfile*",
                 "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
             ],
             // Pattern:
@@ -145,6 +153,10 @@
             customType: "regex",
             managerFilePatterns: [
                 "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "**/[Dd]ockerfile*",
+                "**/[Cc]ontainerfile*",
+                "**/*.[Dd]ockerfile*",
+                "**/*.[Cc]ontainerfile*",
                 "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
             ],
             // Pattern:
