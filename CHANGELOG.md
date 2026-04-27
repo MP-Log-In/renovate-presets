@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.17.0..v0.18.0) - 2026-04-27
+
+### 🚀 Features
+
+- *(config)* Extend github regex manager to versions env files - ([92e1d35](https://git.0xmax42.io/renovate-bot/presets/commit/92e1d3539234660c0bcd889ebc6f4b8c5195f10b))
+
 ## [0.17.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.16.1..v0.17.0) - 2026-04-27
 
 ### 🚀 Features
