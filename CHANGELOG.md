@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.17.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.16.1..v0.17.0) - 2026-04-27
+
+### 🚀 Features
+
+- *(config)* Support debian managers in versions env files - ([d0c8ee1](https://git.0xmax42.io/renovate-bot/presets/commit/d0c8ee1d1c3625a46b2b09de049ed782708b4cf6))
+
 ## [0.16.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.16.0..v0.16.1) - 2026-04-24
 
 ### 🐛 Bug Fixes
