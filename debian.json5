@@ -15,7 +15,9 @@
         "fileFilters": [
             "Dockerfile",
             "**/Dockerfile",
-            "**/Dockerfile.*"
+            "**/Dockerfile.*",
+            "versions.*.env",
+            "**/versions.*.env",
         ],
     },
     packageRules: [
@@ -97,14 +99,17 @@
         {
             customType: "regex",
             managerFilePatterns: [
-                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/"
+                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
             ],
-            // Pattern: 
+            // Pattern:
             // # renovate:debian-snapshot+security: suite=XYZ arch=ABC depName=NAME
             // # any other comments
             // ARG FOO_VERSION="1.2.3"
+            // or:
+            // FOO_VERSION="1.2.3"
             matchStrings: [
-                '(?m)^#\\s*renovate:debian-snapshot\\+security:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\s*$(?:\r?\n^#.*$)*\r?\n^ARG .*?_VERSION="(?<currentValue>.*)"',
+                '(?m)^#\\s*renovate:debian-snapshot\\+security:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\s*$(?:\r?\n^#.*$)*\r?\n^\\s*(?:ARG\\s+)?[A-Za-z_][A-Za-z0-9_]*_VERSION="?(?<currentValue>[^"\r\n]+)"?\\s*$',
             ],
             // Debian Registry URL: Suite from regex or default to 'stable', components fixed, arch from regex or default to 'amd64'
             registryUrlTemplate: "https://snapshot.debian.org/archive/debian-security/{{ env.DEBIAN_SNAPSHOT_TS }}/?suite={{#if suite}}{{suite}}-security{{else}}stable-security{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
@@ -116,14 +121,17 @@
         {
             customType: "regex",
             managerFilePatterns: [
-                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/"
+                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
             ],
-            // Pattern: 
-            // # renovate:debian-snapshot+security: suite=XYZ arch=ABC depName=NAME 
+            // Pattern:
+            // # renovate:debian registryUrl=URL suite=XYZ arch=ABC component=XYZ depName=NAME
             // # any other comments
             // ARG FOO_VERSION="1.2.3"
+            // or:
+            // FOO_VERSION="1.2.3"
             matchStrings: [
-                '(?m)^#\\s*renovate:debian-snapshot\\+security:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\s*$(?:\r?\n^#.*$)*\r?\n^ARG .*?_VERSION="(?<currentValue>.*)"',
+                '(?m)^#\\s*renovate:debian-snapshot\\+security:\\s*?(suite=(?<suite>.*?))?\\s*?(arch=(?<arch>.*?))?\\s*depName=(?<depName>.*?)?\\s*$(?:\r?\n^#.*$)*\r?\n^\\s*(?:ARG\\s+)?[A-Za-z_][A-Za-z0-9_]*_VERSION="?(?<currentValue>[^"\r\n]+)"?\\s*$',
             ],
             // Debian Registry URL: Suite from regex or default to 'stable', components fixed, arch from regex or default to 'amd64'
             registryUrlTemplate: "https://snapshot.debian.org/archive/debian/{{ env.DEBIAN_SNAPSHOT_TS }}/?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components=main,contrib,non-free&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
@@ -136,14 +144,17 @@
             // Manager for Debian package versions in Dockerfiles
             customType: "regex",
             managerFilePatterns: [
-                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/"
+                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
             ],
             // Pattern:
             // # renovate:debian registryUrl=URL suite=XYZ arch=ABC component=XYZ depName=NAME
             // # any other comments
             // ARG FOO_VERSION="1.2.3"
+            // or:
+            // FOO_VERSION="1.2.3"
             matchStrings: [
-                '(?m)^#\\s*renovate:debian\\s+(?:registryUrl=(?<registryUrl>\\S+)\\s+)?(?:suite=(?<suite>\\S+)\\s+)?(?:arch=(?<arch>\\S+)\\s+)?(?:component=(?<component>\\S+)\\s+)?depName=(?<depName>\\S+)\\s*$(?:\r?\n^#.*$)*\r?\n^ARG .*?_VERSION="(?<currentValue>[^"]+)"',
+                '(?m)^#\\s*renovate:debian\\s+(?:registryUrl=(?<registryUrl>\\S+)\\s+)?(?:suite=(?<suite>\\S+)\\s+)?(?:arch=(?<arch>\\S+)\\s+)?(?:component=(?<component>\\S+)\\s+)?depName=(?<depName>\\S+)\\s*$(?:\r?\n^#.*$)*\r?\n^\\s*(?:ARG\\s+)?[A-Za-z_][A-Za-z0-9_]*_VERSION="?(?<currentValue>[^"\r\n]+)"?\\s*$',
             ],
             registryUrlTemplate: "{{#if registryUrl}}{{registryUrl}}{{else}}https://deb.debian.org/debian/{{/if}}?suite={{#if suite}}{{suite}}{{else}}stable{{/if}}&components={{#if component}}{{component}}{{else}}main,contrib,non-free{{/if}}&binaryArch={{#if arch}}{{arch}}{{else}}amd64{{/if}}",
             depNameTemplate: "{{depName}}-{{#if arch}}{{arch}}{{else}}amd64{{/if}}",
