@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.18.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.18.0..v0.18.1) - 2026-04-27
+
+### 🐛 Bug Fixes
+
+- *(config)* Broaden docker and containerfile regex manager patterns - ([605cd6f](https://git.0xmax42.io/renovate-bot/presets/commit/605cd6fcc05bf1665aa177358be46032e9539899))
+
 ## [0.18.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.17.0..v0.18.0) - 2026-04-27
 
 ### 🚀 Features
