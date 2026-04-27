@@ -60,13 +60,16 @@
         {
             "customType": "regex",
             "managerFilePatterns": [
-                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/"
+                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
             ],
             // Pattern:
             // # renovate:github-release: [registryUrl=...] packageName=OWNER/REPO [depName=NAME]
             // ARG FOO_VERSION="v1.2.3"
+            // or:
+            // FOO_VERSION="v1.2.3"
             "matchStrings": [
-                "(?m)^#\\s*renovate:github-release:\\s*(?:registryUrl=(?<registryUrl>\\S+)\\s+)?packageName=(?<packageName>\\S+)(?:\\s+depName=(?<depName>\\S+))?\\s*$(?:\\r?\\n^#.*$)*\\r?\\n^[ \\t]*ARG\\s+(?<argName>[A-Za-z0-9_]+_VERSION)=\"?(?<currentValue>[^\"\\s]+)\"?"
+                "(?m)^#\\s*renovate:github-release:\\s*(?:registryUrl=(?<registryUrl>\\S+)\\s+)?packageName=(?<packageName>\\S+)(?:\\s+depName=(?<depName>\\S+))?\\s*$(?:\\r?\\n^#.*$)*\\r?\\n^[ \\t]*(?:ARG\\s+)?(?<argName>[A-Za-z0-9_]+_VERSION)=\"?(?<currentValue>[^\"\\s]+)\"?\\s*$"
             ],
             "datasourceTemplate": "github-releases",
             // github-releases has no default versioning; regex managers default to semver-coerced,
