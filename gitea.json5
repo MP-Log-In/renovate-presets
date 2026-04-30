@@ -1,0 +1,87 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Gitea Automerge + Gitea Docker Regex Manager
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Automerge Gitea patch release version updates",
+            matchDatasources: [
+                "gitea-releases"
+            ],
+            matchUpdateTypes: [
+                "patch"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/gitea/patch"
+            ],
+            "groupName": "gitea release updates",
+        },
+        {
+            description: "Automerge Gitea minor release version updates",
+            matchDatasources: [
+                "gitea-releases"
+            ],
+            matchUpdateTypes: [
+                "minor",
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/gitea/minor"
+            ],
+            "groupName": "gitea release updates",
+        },
+        {
+            description: "Automerge Gitea major release version updates",
+            matchDatasources: [
+                "gitea-releases"
+            ],
+            matchUpdateTypes: [
+                "major",
+            ],
+            dependencyDashboardApproval: true,
+            automerge: false,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge/disabled",
+                "dependency/gitea/major"
+            ],
+        },
+    ],
+    customManagers: [
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "**/[Dd]ockerfile*",
+                "**/[Cc]ontainerfile*",
+                "**/*.[Dd]ockerfile*",
+                "**/*.[Cc]ontainerfile*",
+                "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
+            ],
+            // Pattern:
+            // # renovate:gitea-release: [registryUrl=...] packageName=OWNER/REPO [depName=NAME]
+            // ARG FOO_VERSION="v1.2.3"
+            // or:
+            // FOO_VERSION="v1.2.3"
+            "matchStrings": [
+                "(?m)^#\\s*renovate:gitea-release:\\s*(?:registryUrl=(?<registryUrl>\\S+)\\s+)?packageName=(?<packageName>\\S+)(?:\\s+depName=(?<depName>\\S+))?\\s*$(?:\\r?\\n^#.*$)*\\r?\\n^[ \\t]*(?:ARG\\s+)?(?<argName>[A-Za-z0-9_]+_VERSION)=\"?(?<currentValue>[^\"\\s]+)\"?\\s*$"
+            ],
+            "datasourceTemplate": "gitea-releases",
+            // gitea-releases has no default versioning; regex managers default to semver-coerced,
+            // but being explicit helps when tags are like "v1.2.3".
+            "versioningTemplate": "semver-coerced",
+            "registryUrlTemplate": "{{#if registryUrl}}{{registryUrl}}{{else}}https://git.0xmax42.io/{{/if}}",
+            "packageNameTemplate": "{{{packageName}}}",
+            "depNameTemplate": "{{#if depName}}{{{depName}}}{{else}}{{{packageName}}}{{/if}}"
+        },
+    ],
+}
