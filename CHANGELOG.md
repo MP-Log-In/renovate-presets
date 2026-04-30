@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.19.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.18.1..v0.19.0) - 2026-04-30
+
+### 🚀 Features
+
+- *(config)* Add gitea automerge and docker regex manager preset - ([0fdfe4d](https://git.0xmax42.io/renovate-bot/presets/commit/0fdfe4d51fdfe13c953e247fb32811feaa5645e8))
+
 ## [0.18.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.18.0..v0.18.1) - 2026-04-27
 
 ### 🐛 Bug Fixes
