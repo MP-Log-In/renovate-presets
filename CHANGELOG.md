@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.4](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.3..v0.20.4) - 2026-05-09
+
+### 🐛 Bug Fixes
+
+- *(config)* Mark deno imports as deno-managed for renovate - ([41e0813](https://git.0xmax42.io/renovate-bot/presets/commit/41e0813df479498af7a5a3b3e461fc6ac65f4963))
+
 ## [0.20.3](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.2..v0.20.3) - 2026-05-09
 
 ### 🐛 Bug Fixes
