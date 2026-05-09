@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.0..v0.20.1) - 2026-05-09
+
+### 🐛 Bug Fixes
+
+- *(config)* Add automerge rules for deno gitea tag updates - ([2319e1b](https://git.0xmax42.io/renovate-bot/presets/commit/2319e1b733d418446a3947f1c7cb67f0c4c800dd))
+
 ## [0.20.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.19.0..v0.20.0) - 2026-05-09
 
 ### 🚀 Features
