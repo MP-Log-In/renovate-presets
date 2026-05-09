@@ -64,6 +64,104 @@
                 "dependency/deno/major"
             ],
         },
+        {
+            description: "Automerge Deno self-hosted Gitea tag patch updates",
+            matchManagers: [
+                "custom.jsonata",
+                "custom.regex"
+            ],
+            matchDatasources: [
+                "gitea-tags"
+            ],
+            matchRegistryUrls: [
+                "https://git.0xmax42.io/**"
+            ],
+            matchFileNames: [
+                "**/import_map.json",
+                "**/deno.json",
+                "**/deno.jsonc",
+                "**/*.ts",
+                "**/*.tsx",
+                "**/*.js",
+                "**/*.jsx"
+            ],
+            matchUpdateTypes: [
+                "patch"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/deno/patch"
+            ],
+            groupName: "deno self-hosted gitea tag updates",
+        },
+        {
+            description: "Automerge Deno self-hosted Gitea tag minor updates",
+            matchManagers: [
+                "custom.jsonata",
+                "custom.regex"
+            ],
+            matchDatasources: [
+                "gitea-tags"
+            ],
+            matchRegistryUrls: [
+                "https://git.0xmax42.io/**"
+            ],
+            matchFileNames: [
+                "**/import_map.json",
+                "**/deno.json",
+                "**/deno.jsonc",
+                "**/*.ts",
+                "**/*.tsx",
+                "**/*.js",
+                "**/*.jsx"
+            ],
+            matchUpdateTypes: [
+                "minor"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/deno/minor"
+            ],
+            groupName: "deno self-hosted gitea tag updates",
+        },
+        {
+            description: "Disable automerge for Deno self-hosted Gitea tag major updates",
+            matchManagers: [
+                "custom.jsonata",
+                "custom.regex"
+            ],
+            matchDatasources: [
+                "gitea-tags"
+            ],
+            matchRegistryUrls: [
+                "https://git.0xmax42.io/**"
+            ],
+            matchFileNames: [
+                "**/import_map.json",
+                "**/deno.json",
+                "**/deno.jsonc",
+                "**/*.ts",
+                "**/*.tsx",
+                "**/*.js",
+                "**/*.jsx"
+            ],
+            matchUpdateTypes: [
+                "major"
+            ],
+            automerge: false,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge/disabled",
+                "dependency/deno/major"
+            ],
+        },
     ],
     customManagers: [
         // JSR
