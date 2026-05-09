@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.2](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.1..v0.20.2) - 2026-05-09
+
+### 🐛 Bug Fixes
+
+- *(config)* Align gitea tag group names with npm jsr updates - ([149d18d](https://git.0xmax42.io/renovate-bot/presets/commit/149d18db6790fa02fd67a78dc6f235625e69476c))
+
 ## [0.20.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.0..v0.20.1) - 2026-05-09
 
 ### 🐛 Bug Fixes
