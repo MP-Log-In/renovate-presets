@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.3](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.2..v0.20.3) - 2026-05-09
+
+### 🐛 Bug Fixes
+
+- *(config)* Skip artifacts update for deno automerge rules - ([5c166c0](https://git.0xmax42.io/renovate-bot/presets/commit/5c166c066639a31d8aabd1fc6027fa79ff41487a))
+
 ## [0.20.2](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.1..v0.20.2) - 2026-05-09
 
 ### 🐛 Bug Fixes
