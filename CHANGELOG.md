@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.5](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.4..v0.20.5) - 2026-05-09
+
+### 🐛 Bug Fixes
+
+- *(config)* Disable built-in deno manager in renovate config - ([8191165](https://git.0xmax42.io/renovate-bot/presets/commit/81911656a49a7357e76a25ac876b7d096a4ad2b9))
+
 ## [0.20.4](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.3..v0.20.4) - 2026-05-09
 
 ### 🐛 Bug Fixes
