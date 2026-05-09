@@ -95,7 +95,7 @@
                 "dependency/automerge",
                 "dependency/deno/patch"
             ],
-            groupName: "deno self-hosted gitea tag updates",
+            groupName: "deno jsr/npm package updates",
         },
         {
             description: "Automerge Deno self-hosted Gitea tag minor updates",
@@ -128,7 +128,7 @@
                 "dependency/automerge",
                 "dependency/deno/minor"
             ],
-            groupName: "deno self-hosted gitea tag updates",
+            groupName: "deno jsr/npm package updates",
         },
         {
             description: "Disable automerge for Deno self-hosted Gitea tag major updates",
