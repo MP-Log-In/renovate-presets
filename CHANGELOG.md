@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.20.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.19.0..v0.20.0) - 2026-05-09
+
+### 🚀 Features
+
+- *(config)* Add gitea tag manager for deno imports - ([e8e373c](https://git.0xmax42.io/renovate-bot/presets/commit/e8e373c5159f6b2e694a91d62a0d8d5c36cf773b))
+
 ## [0.19.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.18.1..v0.19.0) - 2026-04-30
 
 ### 🚀 Features
