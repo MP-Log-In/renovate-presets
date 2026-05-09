@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.21.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.5..v0.21.0) - 2026-05-09
+
+### 🚀 Features
+
+- *(config)* Add npm dockerfile regex manager and labels - ([9900854](https://git.0xmax42.io/renovate-bot/presets/commit/990085478dd5b4e9f13f4ccdcd95401a558c128d))
 
 ### 📚 Documentation
 
