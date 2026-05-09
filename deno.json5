@@ -158,7 +158,7 @@
         //     ],
         //     "datasourceTemplate": "deno"
         // },
-        // // Github Tag
+        // Github Tag
         // {
         //     // Derived from Omochice Renovate config (zlib License), modified.
         //     // [License](LICENSES/zlib-omochice.txt)
@@ -185,6 +185,39 @@
         //         "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://raw.githubusercontent.com/(?<depName>.+?/.+?)/(?<currentValue>[^'\"]+?)[/'\"]"
         //     ],
         //     "datasourceTemplate": "github-tags"
-        // }
+        // },
+        // Gitea Tag
+        {
+            // Minimal adaptation of the working GitHub Tag manager for self-hosted Gitea tags.
+            // Derived from Omochice Renovate config (zlib License), modified.
+            "customType": "jsonata",
+            "fileFormat": "json",
+            "managerFilePatterns": [
+                "/(?:^|/)import_map.json$/",
+                "/(?:^|/)deno.jsonc?$/"
+            ],
+            "matchStrings": [
+                "imports.*[$ ~> /^https:\\/\\/git\\.0xmax42\\.io\\//i] ~> $map(function($v) {( $package := $v ~> $replace(/^https:\\/\\/git\\.0xmax42\\.io\\//, '') ~> /^((.+?)\\/(.+?))\\/raw\\/tag\\/(.+?)($|\\/)/; { 'depName': $package.groups[0], 'currentValue': $package.groups[3] })})"
+            ],
+            "datasourceTemplate": "gitea-tags",
+            "versioningTemplate": "semver-coerced",
+            "registryUrlTemplate": "https://git.0xmax42.io/",
+            "packageNameTemplate": "{{depName}}"
+        },
+        {
+            // Minimal adaptation of the working GitHub Tag manager for self-hosted Gitea tags.
+            // Derived from Omochice Renovate config (zlib License), modified.
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/\\.[jt]sx?$/"
+            ],
+            "matchStrings": [
+                "((?:im|ex)port(?:.|\\s)+?from\\s*|//\\s*@deno-types=|//\\s*@ts-types=)['\"]https://git\\.0xmax42\\.io/(?<depName>.+?/.+?)/raw/tag/(?<currentValue>[^/\"']+?)[/\"']"
+            ],
+            "datasourceTemplate": "gitea-tags",
+            "versioningTemplate": "semver-coerced",
+            "registryUrlTemplate": "https://git.0xmax42.io/",
+            "packageNameTemplate": "{{depName}}"
+        }
     ],
 }
