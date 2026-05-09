@@ -1,0 +1,91 @@
+{
+    // ---------------------------------------------------------
+    // Preset: NPM Automerge + NPM Docker Regex Manager
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Automerge npm patch updates in Dockerfiles",
+            matchManagers: [
+                "custom.regex"
+            ],
+            matchDatasources: [
+                "npm"
+            ],
+            matchUpdateTypes: [
+                "patch"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/npm/patch"
+            ],
+            groupName: "npm package updates"
+        },
+        {
+            description: "Automerge npm minor updates in Dockerfiles",
+            matchManagers: [
+                "custom.regex"
+            ],
+            matchDatasources: [
+                "npm"
+            ],
+            matchUpdateTypes: [
+                "minor"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/npm/minor"
+            ],
+            groupName: "npm package updates"
+        },
+        {
+            description: "Do not automerge npm major updates in Dockerfiles",
+            matchManagers: [
+                "custom.regex"
+            ],
+            matchDatasources: [
+                "npm"
+            ],
+            matchUpdateTypes: [
+                "major"
+            ],
+            dependencyDashboardApproval: true,
+            automerge: false,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge/disabled",
+                "dependency/npm/major"
+            ]
+        }
+    ],
+    customManagers: [
+        {
+            customType: "regex",
+            managerFilePatterns: [
+                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "**/[Dd]ockerfile*",
+                "**/[Cc]ontainerfile*",
+                "**/*.[Dd]ockerfile*",
+                "**/*.[Cc]ontainerfile*",
+                "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/"
+            ],
+            // Pattern:
+            // # renovate: datasource=npm [registryUrl=...] depName=NAME [packageName=NAME] [versioning=npm]
+            // ARG PNPM_VERSION="11.0.9"
+            // or:
+            // PNPM_VERSION=11.0.9
+            matchStrings: [
+                "(?m)^#\\s*renovate:\\s*datasource=npm\\s+(?:registryUrl=(?<registryUrl>\\S+)\\s+)?depName=(?<depName>\\S+)(?:\\s+packageName=(?<packageName>\\S+))?(?:\\s+versioning=(?<versioning>\\S+))?\\s*$(?:\\r?\\n^#.*$)*\\r?\\n^[ \\t]*(?:ARG\\s+)?(?<argName>[A-Za-z0-9_]+_VERSION)=\"?(?<currentValue>[^\"\\s]+)\"?\\s*$"
+            ],
+            datasourceTemplate: "npm",
+            versioningTemplate: "{{#if versioning}}{{{versioning}}}{{else}}npm{{/if}}"
+        }
+    ]
+}

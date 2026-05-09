@@ -58,6 +58,18 @@ labels:
     color: "2ca02c"
     description: "GitHub-based dependency with a patch update"
 
+  - name: "dependency/npm/major"
+    color: "d62728"
+    description: "NPM dependency with a major update"
+
+  - name: "dependency/npm/minor"
+    color: "ff7f0e"
+    description: "NPM dependency with a minor update"
+
+  - name: "dependency/npm/patch"
+    color: "2ca02c"
+    description: "NPM dependency with a patch update"
+
   - name: "dependency/pypi/major"
     color: "d62728"
     description: "PyPI dependency with a major update"
