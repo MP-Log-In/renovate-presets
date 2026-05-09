@@ -3,6 +3,10 @@
     // Preset: Deno Automerge + Deno JSR/NPM Regex Manager
     // ---------------------------------------------------------
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    // The native Renovate Deno manager is disabled intentionally.
+    // This preset manages Deno imports through custom managers to support
+    // inline imports, import maps, JSR/NPM CDNs, and self-hosted Gitea tags
+    // with a custom lockfile update command using --allow-import.
     "deno": {
         "enabled": false
     },
