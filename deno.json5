@@ -29,6 +29,7 @@
                 "dependency/automerge",
                 "dependency/deno/patch"
             ],
+            skipArtifactsUpdate: true,
             groupName: "deno jsr/npm package updates",
         },
         {
@@ -46,6 +47,7 @@
                 "dependency/automerge",
                 "dependency/deno/minor"
             ],
+            skipArtifactsUpdate: true,
             groupName: "deno jsr/npm package updates",
         },
         {
@@ -63,6 +65,7 @@
                 "dependency/automerge/disabled",
                 "dependency/deno/major"
             ],
+            skipArtifactsUpdate: true
         },
         {
             description: "Automerge Deno self-hosted Gitea tag patch updates",
@@ -95,6 +98,7 @@
                 "dependency/automerge",
                 "dependency/deno/patch"
             ],
+            skipArtifactsUpdate: true,
             groupName: "deno jsr/npm package updates",
         },
         {
@@ -128,6 +132,7 @@
                 "dependency/automerge",
                 "dependency/deno/minor"
             ],
+            skipArtifactsUpdate: true,
             groupName: "deno jsr/npm package updates",
         },
         {
@@ -161,6 +166,7 @@
                 "dependency/automerge/disabled",
                 "dependency/deno/major"
             ],
+            skipArtifactsUpdate: true,
         },
     ],
     customManagers: [
