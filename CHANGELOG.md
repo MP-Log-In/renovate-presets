@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### 📚 Documentation
+
+- *(config)* Document rationale for disabling deno manager - ([4085a14](https://git.0xmax42.io/renovate-bot/presets/commit/4085a14687d95e3563bbe812766aa32763d3259e))
+
 ## [0.20.5](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.4..v0.20.5) - 2026-05-09
 
 ### 🐛 Bug Fixes
