@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.22.0..v0.22.1) - 2026-05-14
+
+### 🐛 Bug Fixes
+
+- *(config)* Run npm install twice for npm lockfile updates - ([f464674](https://git.0xmax42.io/renovate-bot/presets/commit/f4646745b829d0e1735b83537625533775bc7b0f))
+
 ## [0.22.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.21.0..v0.22.0) - 2026-05-14
 
 ### 🚀 Features
