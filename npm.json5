@@ -1,0 +1,68 @@
+{
+    // ---------------------------------------------------------
+    // Preset: NPM Automerge
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Automerge npm patch updates",
+            matchManagers: [
+                "npm"
+            ],
+            matchDatasources: [
+                "npm"
+            ],
+            matchUpdateTypes: [
+                "patch"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/npm/patch"
+            ],
+            groupName: "npm package updates"
+        },
+        {
+            description: "Automerge npm minor updates",
+            matchManagers: [
+                "npm"
+            ],
+            matchDatasources: [
+                "npm"
+            ],
+            matchUpdateTypes: [
+                "minor"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/npm/minor"
+            ],
+            groupName: "npm package updates"
+        },
+        {
+            description: "Do not automerge npm major updates",
+            matchManagers: [
+                "npm"
+            ],
+            matchDatasources: [
+                "npm"
+            ],
+            matchUpdateTypes: [
+                "major"
+            ],
+            dependencyDashboardApproval: true,
+            automerge: false,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge/disabled",
+                "dependency/npm/major"
+            ]
+        }
+    ]
+}
