@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.22.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.21.0..v0.22.0) - 2026-05-14
+
+### 🚀 Features
+
+- *(config)* Add npm preset for automerging dependency updates - ([0a858cb](https://git.0xmax42.io/renovate-bot/presets/commit/0a858cbd1a03e18f27a299cf3fa0ea25b571bb76))
+
 ## [0.21.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.20.5..v0.21.0) - 2026-05-09
 
 ### 🚀 Features
