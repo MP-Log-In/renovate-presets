@@ -5,6 +5,15 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     packageRules: [
         {
+            "description": "Use two npm install passes for npm lockfile updates",
+            "matchManagers": [
+                "npm"
+            ],
+            "postUpdateOptions": [
+                "npmInstallTwice"
+            ]
+        },
+        {
             description: "Automerge npm patch updates",
             matchManagers: [
                 "npm"
