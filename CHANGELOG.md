@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### ⚙️ Miscellaneous Tasks
+
+- Add release sync workflow for published tags - ([f2ef578](https://git.0xmax42.io/renovate-bot/presets/commit/f2ef578ee989f64526b80bbc8414227223cf51c9))
+
 ## [0.22.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.22.0..v0.22.1) - 2026-05-14
 
 ### 🐛 Bug Fixes
