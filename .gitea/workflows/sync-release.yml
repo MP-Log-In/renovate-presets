@@ -1,0 +1,37 @@
+name: Sync Releases
+
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "Release tag to sync, e.g. v1.2.3"
+        required: true
+        type: string
+
+jobs:
+  sync-release:
+    runs-on: ubuntu-latest
+
+    env:
+      RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag_name || github.event.release.tag_name }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.RELEASE_TAG }}
+          fetch-depth: 0
+
+      - name: Run Releases Sync Action
+        uses: https://git.0xmax42.io/actions/releases-sync@main
+        with:
+          gitea_token: ${{ secrets.RELEASE_PUBLISH_TOKEN }}
+          gitea_url: https://git.0xmax42.io
+          gitea_owner: renovate-bot
+          gitea_repo: presets
+          tag_name: ${{ env.RELEASE_TAG }}
+          github_token: ${{ secrets.SYNC_GITHUB_TOKEN_LOG_IN }}
+          github_owner: MP-Log-In
+          github_repo: renovate-presets
