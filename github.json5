@@ -7,7 +7,8 @@
         {
             description: "Automerge Github patch release version updates",
             matchDatasources: [
-                "github-releases"
+                "github-releases",
+                "github-tags"
             ],
             matchUpdateTypes: [
                 "patch"
@@ -24,7 +25,8 @@
         {
             description: "Automerge Github minor release version updates",
             matchDatasources: [
-                "github-releases"
+                "github-releases",
+                "github-tags"
             ],
             matchUpdateTypes: [
                 "minor",
@@ -41,7 +43,8 @@
         {
             description: "Automerge Github major release version updates",
             matchDatasources: [
-                "github-releases"
+                "github-releases",
+                "github-tags"
             ],
             matchUpdateTypes: [
                 "major",
@@ -77,6 +80,32 @@
             ],
             "datasourceTemplate": "github-releases",
             // github-releases has no default versioning; regex managers default to semver-coerced,
+            // but being explicit helps when tags are like "v1.2.3".
+            "versioningTemplate": "semver-coerced",
+            "registryUrlTemplate": "{{#if registryUrl}}{{registryUrl}}{{else}}https://github.com/{{/if}}",
+            "packageNameTemplate": "{{{packageName}}}",
+            "depNameTemplate": "{{#if depName}}{{{depName}}}{{else}}{{{packageName}}}{{/if}}"
+        },
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/Dockerfile(\\.[A-Za-z0-9_]+)?$/",
+                "**/[Dd]ockerfile*",
+                "**/[Cc]ontainerfile*",
+                "**/*.[Dd]ockerfile*",
+                "**/*.[Cc]ontainerfile*",
+                "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
+            ],
+            // Pattern:
+            // # renovate:github-tags: [registryUrl=...] packageName=OWNER/REPO [depName=NAME]
+            // ARG FOO_VERSION="v1.2.3"
+            // or:
+            // FOO_VERSION="v1.2.3"
+            "matchStrings": [
+                "(?m)^#\\s*renovate:github-tags:\\s*(?:registryUrl=(?<registryUrl>\\S+)\\s+)?packageName=(?<packageName>\\S+)(?:\\s+depName=(?<depName>\\S+))?\\s*$(?:\\r?\\n^#.*$)*\\r?\\n^[ \\t]*(?:ARG\\s+)?(?<argName>[A-Za-z0-9_]+_VERSION)=\"?(?<currentValue>[^\"\\s]+)\"?\\s*$"
+            ],
+            "datasourceTemplate": "github-tags",
+            // github-tags has no default versioning; regex managers default to semver-coerced,
             // but being explicit helps when tags are like "v1.2.3".
             "versioningTemplate": "semver-coerced",
             "registryUrlTemplate": "{{#if registryUrl}}{{registryUrl}}{{else}}https://github.com/{{/if}}",
