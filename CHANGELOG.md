@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.24.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.23.0..v0.24.0) - 2026-06-30
+
+### 🚀 Features
+
+- *(config)* Add debian image digest updates for env files - ([f505c87](https://git.0xmax42.io/renovate-bot/presets/commit/f505c87f508758791574a2bd5b49b35b14b28bcf))
+
 ## [0.23.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.22.1..v0.23.0) - 2026-06-30
 
 ### 🚀 Features
