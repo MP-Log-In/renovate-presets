@@ -44,6 +44,28 @@
             ]
         },
         {
+            description: "Automerge digest updates for debian base images in regex-managed files",
+            matchManagers: [
+                "custom.regex"
+            ],
+            matchDatasources: [
+                "docker"
+            ],
+            matchPackageNames: [
+                "debian"
+            ],
+            matchUpdateTypes: [
+                "digest"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/debian/docker/digest"
+            ]
+        },
+        {
             description: "Automerge Debian patch package version updates",
             matchDatasources: [
                 "deb"
@@ -95,6 +117,25 @@
         },
     ],
     customManagers: [
+        {
+            // Manager for Debian base images in versions env files
+            customType: "regex",
+            managerFilePatterns: [
+                "/(^|/)versions\\.[A-Za-z0-9_]+\\.env$/",
+            ],
+            // Pattern:
+            // # renovate:debian-image
+            // DEBIAN_IMAGE="debian:stable-slim@sha256:..."
+            // or:
+            // DEBIAN_IMAGE=debian:stable-slim@sha256:...
+            matchStrings: [
+                '(?m)^#\\s*renovate:debian-image\\s*$(?:\r?\n^#.*$)*\r?\n^\\s*[A-Za-z_][A-Za-z0-9_]*="?debian:(?<currentValue>[^@"\\r\\n]+)@(?<currentDigest>sha256:[a-f0-9]+)"?\\s*$',
+            ],
+            datasourceTemplate: "docker",
+            depNameTemplate: "debian",
+            packageNameTemplate: "debian",
+            versioningTemplate: "docker",
+        },
         // Combined snapshot+security manager to handle both at once
         {
             customType: "regex",
