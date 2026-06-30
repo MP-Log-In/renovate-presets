@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [0.23.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.22.1..v0.23.0) - 2026-06-30
+
+### 🚀 Features
+
+- *(config)* Add github tags support to github preset - ([6296f4e](https://git.0xmax42.io/renovate-bot/presets/commit/6296f4eeb6ce320650c584a7f56da7f5a7bead72))
 
 ### ⚙️ Miscellaneous Tasks
 
