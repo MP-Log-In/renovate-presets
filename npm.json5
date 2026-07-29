@@ -5,11 +5,22 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     packageRules: [
         {
-            "description": "Use two npm install passes for npm lockfile updates",
-            "matchManagers": [
+            description: "Wait before proposing npm package releases",
+            matchManagers: [
                 "npm"
             ],
-            "postUpdateOptions": [
+            matchDatasources: [
+                "npm"
+            ],
+            minimumReleaseAge: "14 days",
+            internalChecksFilter: "strict"
+        },
+        {
+            description: "Use two npm install passes for npm lockfile updates",
+            matchManagers: [
+                "npm"
+            ],
+            postUpdateOptions: [
                 "npmInstallTwice"
             ]
         },
