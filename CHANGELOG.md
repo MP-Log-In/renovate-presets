@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.26.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.25.0..v0.26.0) - 2026-07-29
+
+### 🚀 Features
+
+- *(config)* Wait before proposing Dockerfile npm releases - ([f4b06eb](https://git.0xmax42.io/renovate-bot/presets/commit/f4b06eb439386d729460b38f4a87f14ed837556e))
+
 ## [0.25.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.24.0..v0.25.0) - 2026-07-29
 
 ### 🚀 Features
