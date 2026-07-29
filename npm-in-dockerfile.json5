@@ -5,6 +5,17 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     packageRules: [
         {
+            description: "Wait before proposing npm package releases in Dockerfiles",
+            matchManagers: [
+                "custom.regex"
+            ],
+            matchDatasources: [
+                "npm"
+            ],
+            minimumReleaseAge: "14 days",
+            internalChecksFilter: "strict"
+        },
+        {
             description: "Automerge npm patch updates in Dockerfiles",
             matchManagers: [
                 "custom.regex"
