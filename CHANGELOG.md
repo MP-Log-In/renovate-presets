@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.27.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.26.0..v0.27.0) - 2026-08-04
+
+### 🚀 Features
+
+- *(config)* Add Containerfile support to Debian post-upgrade tasks - ([f3f37a3](https://git.0xmax42.io/renovate-bot/presets/commit/f3f37a3e48f6f97b3b09a91ad8bc7af570f1a319))
+
+### 🚜 Refactor
+
+- *(config)* Move post-upgrade tasks into matching package rules - ([fc0609f](https://git.0xmax42.io/renovate-bot/presets/commit/fc0609f8af297eb14d4ba3740bff2b8e5be892c0))
+
 ## [0.26.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.25.0..v0.26.0) - 2026-07-29
 
 ### 🚀 Features
