@@ -6,24 +6,30 @@
     suppressNotifications: [
         "dependencyLookupWarnings"
     ],
-    "postUpgradeTasks": {
-        "executionMode": "update",
-        "commands": [
-            "bump-debian-snapshot.py"
-        ],
-        "dataFileTemplate": "{{{ toJSON upgrades }}}",
-        "fileFilters": [
-            "Dockerfile",
-            "**/Dockerfile",
-            "**/Dockerfile.*",
-            "Containerfile",
-            "**/Containerfile",
-            "**/Containerfile.*",
-            "versions.*.env",
-            "**/versions.*.env",
-        ],
-    },
     packageRules: [
+        {
+            description: "Update Debian snapshot after Debian package updates",
+            matchDatasources: [
+                "deb"
+            ],
+            postUpgradeTasks: {
+                executionMode: "update",
+                commands: [
+                    "bump-debian-snapshot.py"
+                ],
+                dataFileTemplate: "{{{ toJSON upgrades }}}",
+                "fileFilters": [
+                    "Dockerfile",
+                    "**/Dockerfile",
+                    "**/Dockerfile.*",
+                    "Containerfile",
+                    "**/Containerfile",
+                    "**/Containerfile.*",
+                    "versions.*.env",
+                    "**/versions.*.env",
+                ],
+            }
+        },
         {
             description: "Automerge digest updates for debian base images",
             matchManagers: [

@@ -10,17 +10,23 @@
     "deno": {
         "enabled": false
     },
-    "postUpgradeTasks": {
-        "commands": [
-            "deno install --lockfile-only --allow-import"
-        ],
-        "fileFilters": [
-            "deno.lock",
-            "**/deno.lock"
-        ],
-        "executionMode": "update"
-    },
     packageRules: [
+        {
+            description: "Update Deno lockfile after Deno dependency updates",
+            matchDepTypes: [
+                "deno-managed"
+            ],
+            postUpgradeTasks: {
+                commands: [
+                    "deno install --lockfile-only --allow-import"
+                ],
+                fileFilters: [
+                    "deno.lock",
+                    "**/deno.lock"
+                ],
+                executionMode: "update"
+            }
+        },
         {
             description: "Automerge Deno JSR/NPM patch package version updates",
             matchDatasources: [
