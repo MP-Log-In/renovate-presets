@@ -31,6 +31,32 @@
             }
         },
         {
+            description: "Update Debian snapshot after Docker digest updates",
+            matchDatasources: [
+                "docker"
+            ],
+            matchUpdateTypes: [
+                "digest"
+            ],
+            postUpgradeTasks: {
+                executionMode: "update",
+                commands: [
+                    "bump-debian-snapshot.py"
+                ],
+                dataFileTemplate: "{{{ toJSON upgrades }}}",
+                "fileFilters": [
+                    "Dockerfile",
+                    "**/Dockerfile",
+                    "**/Dockerfile.*",
+                    "Containerfile",
+                    "**/Containerfile",
+                    "**/Containerfile.*",
+                    "versions.*.env",
+                    "**/versions.*.env",
+                ],
+            }
+        },
+        {
             description: "Automerge digest updates for debian base images",
             matchManagers: [
                 "dockerfile"
