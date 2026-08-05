@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.28.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.27.0..v0.28.0) - 2026-08-05
+
+### 🚀 Features
+
+- *(config)* Update Debian snapshot after Docker digest changes - ([a4be58d](https://git.0xmax42.io/renovate-bot/presets/commit/a4be58d1e96ac0107ad23fc1c03199421d2f17f2))
+
 ## [0.27.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.26.0..v0.27.0) - 2026-08-04
 
 ### 🚀 Features
