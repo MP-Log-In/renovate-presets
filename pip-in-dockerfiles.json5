@@ -72,8 +72,13 @@
                 "versions.*.env",
                 "**/versions.*.env",
             ],
+            // Pattern:
+            // # renovate:pypi [packageName=NAME] depName=NAME [registryUrl=URL] [versioning=pep440]
+            // ARG FOO_VERSION="1.2.3"
+            // or:
+            // FOO_VERSION=1.2.3
             "matchStrings": [
-                "#\\s*renovate:pypi\\s+(?:packageName=(?<packageName>[^\\s]+)\\s+)?depName=(?<depName>[^\\s]+)(?:\\s+registryUrl=(?<registryUrl>[^\\s]+))?(?:\\s+versioning=(?<versioning>[^\\s]+))?\\s(?:ARG\\s+)[A-Za-z0-9_]+?_VERSION[ =][\"']?(?<currentValue>.+?)[\"']?\\s"
+                "(?m)^#\\s*renovate:pypi\\s+(?:packageName=(?<packageName>\\S+)\\s+)?depName=(?<depName>\\S+)(?:\\s+registryUrl=(?<registryUrl>\\S+))?(?:\\s+versioning=(?<versioning>\\S+))?\\s*$(?:\\r?\\n^#.*$)*\\r?\\n^[ \\t]*(?:ARG\\s+)?(?<argName>[A-Za-z0-9_]+_VERSION)=?\"?(?<currentValue>[^\"\\s]+)\"?\\s*$"
             ],
             "datasourceTemplate": "pypi",
             "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}pep440{{/if}}"
