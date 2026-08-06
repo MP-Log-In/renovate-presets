@@ -68,7 +68,9 @@
                 "**/[Dd]ockerfile*",
                 "**/[Cc]ontainerfile*",
                 "**/*.[Dd]ockerfile*",
-                "**/*.[Cc]ontainerfile*"
+                "**/*.[Cc]ontainerfile*",
+                "versions.*.env",
+                "**/versions.*.env",
             ],
             "matchStrings": [
                 "#\\s*renovate:pypi\\s+(?:packageName=(?<packageName>[^\\s]+)\\s+)?depName=(?<depName>[^\\s]+)(?:\\s+registryUrl=(?<registryUrl>[^\\s]+))?(?:\\s+versioning=(?<versioning>[^\\s]+))?\\s(?:ENV|ARG)\\s+[A-Za-z0-9_]+?_VERSION[ =][\"']?(?<currentValue>.+?)[\"']?\\s"
