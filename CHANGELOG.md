@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.29.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.29.0..v0.29.1) - 2026-08-06
+
+### 🐛 Bug Fixes
+
+- *(config)* Limit pip regex manager to ARG version variables - ([0b2fa19](https://git.0xmax42.io/renovate-bot/presets/commit/0b2fa19e22294a3f4199f76ed9c06d1ad535d69e))
+
 ## [0.29.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.28.0..v0.29.0) - 2026-08-06
 
 ### 🚀 Features
