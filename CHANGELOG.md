@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.29.2](https://git.0xmax42.io/renovate-bot/presets/compare/v0.29.1..v0.29.2) - 2026-08-06
+
+### 🐛 Bug Fixes
+
+- *(config)* Support env-style pip version assignments in regex manager - ([e0723b3](https://git.0xmax42.io/renovate-bot/presets/commit/e0723b3e82cfab8f66137018a0f69461a391a75f))
+
 ## [0.29.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.29.0..v0.29.1) - 2026-08-06
 
 ### 🐛 Bug Fixes
