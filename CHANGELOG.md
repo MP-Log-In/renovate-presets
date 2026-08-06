@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.29.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.28.0..v0.29.0) - 2026-08-06
+
+### 🚀 Features
+
+- *(config)* Add env file support to pip regex manager - ([76bd8fd](https://git.0xmax42.io/renovate-bot/presets/commit/76bd8fd7949064ff1754e76d8120516994cb5935))
+
 ## [0.28.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.27.0..v0.28.0) - 2026-08-05
 
 ### 🚀 Features
