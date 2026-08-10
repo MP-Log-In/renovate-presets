@@ -12,6 +12,17 @@
     },
     packageRules: [
         {
+            description: "Wait before proposing Deno JSR/NPM package releases",
+            matchDatasources: [
+                "npm"
+            ],
+            matchDepTypes: [
+                "deno-managed"
+            ],
+            minimumReleaseAge: "14 days",
+            internalChecksFilter: "strict"
+        },
+        {
             description: "Update Deno lockfile after Deno dependency updates",
             matchDepTypes: [
                 "deno-managed"
