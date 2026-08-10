@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.30.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.29.2..v0.30.0) - 2026-08-10
+
+### 🚀 Features
+
+- *(config)* Add release age delay for deno npm dependency updates - ([45a5518](https://git.0xmax42.io/renovate-bot/presets/commit/45a551825976b87a1e924873a9e748d14d871f3c))
+
 ## [0.29.2](https://git.0xmax42.io/renovate-bot/presets/compare/v0.29.1..v0.29.2) - 2026-08-06
 
 ### 🐛 Bug Fixes
