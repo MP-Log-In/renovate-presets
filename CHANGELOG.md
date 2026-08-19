@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.32.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.31.0..v0.32.0) - 2026-08-19
+
+### 🚀 Features
+
+- *(config)* Pin poetry package versions from pypi - ([c00bc0a](https://git.0xmax42.io/renovate-bot/presets/commit/c00bc0a7a4e4b342d934a7e92d1e7450fd8bcc93))
+
 ## [0.31.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.30.0..v0.31.0) - 2026-08-19
 
 ### 🚀 Features
