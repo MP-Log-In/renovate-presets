@@ -81,3 +81,15 @@ labels:
   - name: "dependency/pypi/patch"
     color: "2ca02c"
     description: "PyPI dependency with a patch update"
+
+  - name: "dependency/python/major"
+    color: "d62728"
+    description: "Python dependency with a major update"
+
+  - name: "dependency/python/minor"
+    color: "ff7f0e"
+    description: "Python dependency with a minor update"
+
+  - name: "dependency/python/patch"
+    color: "2ca02c"
+    description: "Python dependency with a patch update"

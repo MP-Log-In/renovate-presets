@@ -1,0 +1,79 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Python / Poetry Automerge
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Wait before proposing Python package releases",
+            matchManagers: [
+                "poetry"
+            ],
+            matchDatasources: [
+                "pypi"
+            ],
+            minimumReleaseAge: "14 days",
+            internalChecksFilter: "strict"
+        },
+        {
+            description: "Automerge Python patch updates",
+            matchManagers: [
+                "poetry"
+            ],
+            matchDatasources: [
+                "pypi"
+            ],
+            matchUpdateTypes: [
+                "patch"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/python/patch"
+            ],
+            groupName: "Python package updates"
+        },
+        {
+            description: "Automerge Python minor updates",
+            matchManagers: [
+                "poetry"
+            ],
+            matchDatasources: [
+                "pypi"
+            ],
+            matchUpdateTypes: [
+                "minor"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/python/minor"
+            ],
+            groupName: "Python package updates"
+        },
+        {
+            description: "Do not automerge Python major updates",
+            matchManagers: [
+                "poetry"
+            ],
+            matchDatasources: [
+                "pypi"
+            ],
+            matchUpdateTypes: [
+                "major"
+            ],
+            dependencyDashboardApproval: true,
+            automerge: false,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge/disabled",
+                "dependency/python/major"
+            ]
+        }
+    ]
+}
