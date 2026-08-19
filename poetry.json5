@@ -5,6 +5,16 @@
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     packageRules: [
         {
+            description: "Pin Python package versions",
+            matchManagers: [
+                "poetry"
+            ],
+            matchDatasources: [
+                "pypi"
+            ],
+            rangeStrategy: "pin"
+        },
+        {
             description: "Wait before proposing Python package releases",
             matchManagers: [
                 "poetry"
