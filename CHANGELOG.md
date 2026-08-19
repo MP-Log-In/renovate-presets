@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.31.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.30.0..v0.31.0) - 2026-08-19
+
+### 🚀 Features
+
+- *(config)* Add poetry automerge preset and python labels - ([cfa4b9a](https://git.0xmax42.io/renovate-bot/presets/commit/cfa4b9afea1eca89199a233696c17856bce47e7e))
+
 ## [0.30.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.29.2..v0.30.0) - 2026-08-10
 
 ### 🚀 Features
