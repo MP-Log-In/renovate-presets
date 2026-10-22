@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.32.0..v0.33.0) - 2026-10-22
+
+### 🚀 Features
+
+- *(config)* Add reusable Git upstream.mk digest preset (#5) - ([d81ec4b](https://git.0xmax42.io/renovate-bot/presets/commit/d81ec4b3014709ce3addb770446b7b345f641df9))
+
 ## [0.32.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.31.0..v0.32.0) - 2026-08-19
 
 ### 🚀 Features
