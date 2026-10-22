@@ -1,0 +1,48 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Git upstream.mk Digest Updates
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Automerge Git upstream digest updates after required CI checks",
+            matchManagers: [
+                "custom.regex"
+            ],
+            matchDatasources: [
+                "git-refs"
+            ],
+            matchUpdateTypes: [
+                "digest"
+            ],
+            matchDepTypes: [
+                "git-upstream-mk"
+            ],
+            automerge: true,
+            automergeStrategy: "rebase",
+            automergeType: "pr",
+            labels: [
+                "dependency/automerge",
+                "dependency/git/digest"
+            ]
+        }
+    ],
+    customManagers: [
+        {
+            customType: "regex",
+            managerFilePatterns: [
+                "/^upstream\\.mk$/"
+            ],
+            matchStringsStrategy: "combination",
+            matchStrings: [
+                "UPSTREAM_URL\\s*:=\\s*https://(?<forgeHost>[^\\s/]+)/(?<depName>[^\\s/]+/[^\\s/]+)\\.git",
+                "UPSTREAM_REF\\s*:=\\s*(?<currentValue>[^\\s]+)",
+                "UPSTREAM_DIGEST\\s*:=\\s*(?<currentDigest>[0-9a-f]{7,40})"
+            ],
+            datasourceTemplate: "git-refs",
+            versioningTemplate: "git",
+            depTypeTemplate: "git-upstream-mk",
+            packageNameTemplate: "https://{{{forgeHost}}}/{{{depName}}}"
+        }
+    ]
+}

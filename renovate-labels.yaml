@@ -22,6 +22,10 @@ labels:
     color: "17a2b8"
     description: "Docker image dependency with a digest update"
 
+  - name: "dependency/git/digest"
+    color: "17a2b8"
+    description: "Git upstream dependency with a digest update"
+
   - name: "dependency/debian/major"
     color: "d62728"
     description: "Debian dependency with a major update"
