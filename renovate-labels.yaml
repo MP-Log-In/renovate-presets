@@ -14,6 +14,10 @@ labels:
     color: "9467bd"
     description: "Renovate dashboard and tracking label"
 
+  - name: "dependency/copier/template"
+    color: "ff7f0e"
+    description: "Copier template update requiring manual review"
+
   - name: "dependency/debian/docker/digest"
     color: "17a2b8"
     description: "Debian or container-related digest update"

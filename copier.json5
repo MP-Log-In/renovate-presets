@@ -1,0 +1,20 @@
+{
+    // ---------------------------------------------------------
+    // Preset: Copier Template Updates
+    // ---------------------------------------------------------
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    packageRules: [
+        {
+            description: "Require manual review for Copier template updates",
+            matchManagers: [
+                "copier"
+            ],
+            prCreation: "immediate",
+            automerge: false,
+            addLabels: [
+                "dependency/automerge/disabled",
+                "dependency/copier/template"
+            ]
+        }
+    ]
+}
