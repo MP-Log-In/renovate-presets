@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.34.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.33.1..v0.34.0) - 2026-10-23
+
+### 🚀 Features
+
+- *(config)* Add review-only Copier update preset (#8) - ([7a9740a](https://git.0xmax42.io/renovate-bot/presets/commit/7a9740abc1f595aa6cf042bd066646572e32f1b3))
+
 ## [0.33.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.33.0..v0.33.1) - 2026-10-23
 
 ### 🐛 Bug Fixes
