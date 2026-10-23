@@ -35,7 +35,7 @@
             ],
             matchStringsStrategy: "combination",
             matchStrings: [
-                "UPSTREAM_URL\\s*:=\\s*https://(?<forgeHost>[^\\s/]+)/(?<depName>[^\\s/]+/[^\\s/]+)\\.git",
+                "UPSTREAM_URL\\s*:=\\s*https://(?<forgeHost>[^\\s/]+)/(?<depName>[^\\s]+)\\.git(?:\\s|$)",
                 "UPSTREAM_REF\\s*:=\\s*(?<currentValue>[^\\s]+)",
                 "UPSTREAM_DIGEST\\s*:=\\s*(?<currentDigest>[0-9a-f]{7,40})"
             ],
