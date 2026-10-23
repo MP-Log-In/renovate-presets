@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.33.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.33.0..v0.33.1) - 2026-10-23
+
+### 🐛 Bug Fixes
+
+- *(config)* Support nested Git upstream repository paths (#7) - ([2332b2c](https://git.0xmax42.io/renovate-bot/presets/commit/2332b2c9b6e07ce94e2d1018078aefe6a9e4030b))
+
 ## [0.33.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.32.0..v0.33.0) - 2026-10-22
 
 ### 🚀 Features
