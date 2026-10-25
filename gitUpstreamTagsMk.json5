@@ -1,0 +1,89 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "packageRules": [
+        {
+            "description": "Automerge Git upstream patch tag updates",
+            "matchManagers": [
+                "custom.regex"
+            ],
+            "matchDatasources": [
+                "git-tags"
+            ],
+            "matchDepTypes": [
+                "git-upstream-tags-mk"
+            ],
+            "matchUpdateTypes": [
+                "patch"
+            ],
+            "automerge": true,
+            "automergeStrategy": "rebase",
+            "automergeType": "pr",
+            "labels": [
+                "dependency/automerge",
+                "dependency/git/patch"
+            ],
+            "groupName": "git tag updates"
+        },
+        {
+            "description": "Automerge Git upstream minor tag updates",
+            "matchManagers": [
+                "custom.regex"
+            ],
+            "matchDatasources": [
+                "git-tags"
+            ],
+            "matchDepTypes": [
+                "git-upstream-tags-mk"
+            ],
+            "matchUpdateTypes": [
+                "minor"
+            ],
+            "automerge": true,
+            "automergeStrategy": "rebase",
+            "automergeType": "pr",
+            "labels": [
+                "dependency/automerge",
+                "dependency/git/minor"
+            ],
+            "groupName": "git tag updates"
+        },
+        {
+            "description": "Require review for Git upstream major tag updates",
+            "matchManagers": [
+                "custom.regex"
+            ],
+            "matchDatasources": [
+                "git-tags"
+            ],
+            "matchDepTypes": [
+                "git-upstream-tags-mk"
+            ],
+            "matchUpdateTypes": [
+                "major"
+            ],
+            "dependencyDashboardApproval": true,
+            "automerge": false,
+            "automergeStrategy": "rebase",
+            "automergeType": "pr",
+            "labels": [
+                "dependency/automerge/disabled",
+                "dependency/git/major"
+            ]
+        }
+    ],
+    "customManagers": [
+        {
+            "customType": "regex",
+            "managerFilePatterns": [
+                "/^upstream\\.mk$/"
+            ],
+            "matchStrings": [
+                "UPSTREAM_URL[ \\t]*:=[ \\t]*(?<packageName>https://[^\\s]+\\.git)[ \\t]*\\r?\\nUPSTREAM_REF[ \\t]*:=[ \\t]*(?<currentValue>v?[0-9]+\\.[0-9]+\\.[0-9]+(?:-[0-9A-Za-z.-]+)?)[ \\t]*\\r?\\nUPSTREAM_DIGEST[ \\t]*:=[ \\t]*(?<currentDigest>[0-9a-f]{40})"
+            ],
+            "datasourceTemplate": "git-tags",
+            "versioningTemplate": "semver-coerced",
+            "depTypeTemplate": "git-upstream-tags-mk",
+            "autoReplaceStringTemplate": "UPSTREAM_URL := {{{packageName}}}\nUPSTREAM_REF := {{{newValue}}}\nUPSTREAM_DIGEST := {{{newDigest}}}"
+        }
+    ]
+}

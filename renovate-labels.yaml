@@ -30,6 +30,18 @@ labels:
     color: "17a2b8"
     description: "Git upstream dependency with a digest update"
 
+  - name: "dependency/git/major"
+    color: "d62728"
+    description: "Git upstream tag dependency with a major update"
+
+  - name: "dependency/git/minor"
+    color: "ff7f0e"
+    description: "Git upstream tag dependency with a minor update"
+
+  - name: "dependency/git/patch"
+    color: "2ca02c"
+    description: "Git upstream tag dependency with a patch update"
+
   - name: "dependency/debian/major"
     color: "d62728"
     description: "Debian dependency with a major update"
