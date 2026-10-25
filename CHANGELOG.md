@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.35.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.34.0..v0.35.0) - 2026-10-25
+
+### 🚀 Features
+
+- *(renovate)* Support pinned Git upstream tag updates (#9) - ([5b934bf](https://git.0xmax42.io/renovate-bot/presets/commit/5b934bff46a5fff72b2326681350666b3e876295))
+
 ## [0.34.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.33.1..v0.34.0) - 2026-10-23
 
 ### 🚀 Features
