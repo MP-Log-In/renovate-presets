@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.35.1](https://git.0xmax42.io/renovate-bot/presets/compare/v0.35.0..v0.35.1) - 2026-10-28
+
+### 🐛 Bug Fixes
+
+- *(config)* Automerge digests for fully qualified Debian images (#10) - ([e1ee218](https://git.0xmax42.io/renovate-bot/presets/commit/e1ee2189a20529c2f8d029c957d207495032c017))
+
 ## [0.35.0](https://git.0xmax42.io/renovate-bot/presets/compare/v0.34.0..v0.35.0) - 2026-10-25
 
 ### 🚀 Features
